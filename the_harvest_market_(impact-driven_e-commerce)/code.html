@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Harvest Market</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13ec5b",
+              "background-light": "#f6f8f6",
+              "background-dark": "#102216",
+              "surface-dark": "#1c3325",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+            backgroundImage: {
+                'gradient-card': 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%)',
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar for horizontal chips */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-slate-900 dark:text-slate-50 font-display">
+<!-- Top Navigation -->
+<div class="relative w-full bg-[#112217] border-b border-[#23482f]">
+<header class="flex items-center justify-between whitespace-nowrap px-4 py-3 md:px-10 lg:px-40 max-w-[1440px] mx-auto">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-white">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined text-[32px]">agriculture</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">The Harvest Market</h2>
+</div>
+<div class="hidden lg:flex items-center gap-9">
+<a class="text-white text-sm font-medium hover:text-primary transition-colors" href="#">Shop</a>
+<a class="text-white text-sm font-medium hover:text-primary transition-colors" href="#">Impact Report</a>
+<a class="text-white text-sm font-medium hover:text-primary transition-colors" href="#">Farmers</a>
+<a class="text-white text-sm font-medium hover:text-primary transition-colors" href="#">About Us</a>
+</div>
+</div>
+<div class="flex flex-1 justify-end gap-4 md:gap-8">
+<label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full bg-[#23482f] focus-within:ring-2 focus-within:ring-primary/50">
+<div class="text-[#92c9a4] flex items-center justify-center pl-4 pr-2">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="w-full bg-transparent border-none text-white placeholder:text-[#92c9a4] text-sm focus:ring-0 px-0" placeholder="Search goods..."/>
+</div>
+</label>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-lg size-10 bg-[#23482f] text-white hover:bg-primary hover:text-black transition-colors">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+<button class="flex items-center justify-center rounded-lg size-10 bg-[#23482f] text-white hover:bg-primary hover:text-black transition-colors">
+<span class="material-symbols-outlined">person</span>
+</button>
+<!-- Mobile Menu Toggle -->
+<button class="lg:hidden flex items-center justify-center rounded-lg size-10 bg-[#23482f] text-white hover:bg-primary hover:text-black transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+</div>
+<main class="flex flex-col items-center w-full px-4 md:px-10 lg:px-40 py-8 max-w-[1440px] mx-auto">
+<!-- Hero / Mission Section -->
+<div class="w-full mb-12">
+<div class="relative w-full overflow-hidden rounded-2xl bg-[#1c3325] shadow-2xl">
+<div class="flex flex-col md:flex-row min-h-[400px]">
+<!-- Image Side -->
+<div class="w-full md:w-1/2 relative min-h-[300px] md:min-h-auto bg-cover bg-center" data-alt="Close up of hands holding fresh organic soil with a small sprout" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDFTlLVis6sL3-Jvq7jiy4XCTivU0obKA3Y3h5JJ-xebJrslmi0Pilzph25dzrraLEQBoSpntl8vapHS70b7c9Z4ijEMFCc42bRKosv1pwlPva3PhL8U72CGcVvIK6WVXxhHSCQd5WoSHpl1qu_kK5FBNC8RKv4FUYofDvaXq5p-v10Um7ID43hO2gH-cD_N1FeJQrAyxbK5KahYxxMHtkjBhpYDRvjxC84nCaSdkb4SlrpyW2x5lUAz4mhkDG2LO_0EYRB7nlWsvKT");'>
+<div class="absolute inset-0 bg-gradient-to-r from-transparent to-[#1c3325]/90 md:bg-gradient-to-l"></div>
+</div>
+<!-- Content Side -->
+<div class="w-full md:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-center items-start text-left z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6">
+<span class="material-symbols-outlined text-primary text-sm">verified</span>
+<span class="text-xs font-bold text-primary tracking-wide uppercase">Certified Impact Model</span>
+</div>
+<h1 class="text-white text-3xl md:text-5xl font-black leading-tight tracking-tight mb-4">
+                            Every Purchase <br/><span class="text-primary">Plants a Future</span>
+</h1>
+<p class="text-gray-300 text-base md:text-lg mb-8 max-w-md font-light">
+                            Shop sustainably sourced goods where your money directly funds technical training and reforestation projects worldwide.
+                        </p>
+<div class="flex flex-wrap gap-4">
+<button class="h-12 px-6 rounded-lg bg-primary text-[#112217] text-base font-bold hover:bg-white transition-all shadow-[0_0_15px_rgba(19,236,91,0.3)]">
+                                Shop Harvests
+                            </button>
+<button class="h-12 px-6 rounded-lg bg-[#23482f] text-white text-base font-bold hover:bg-[#2d5c3c] transition-all flex items-center gap-2">
+<span>Read Impact Report</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Filter & Sort Header -->
+<div class="w-full flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+<div>
+<h2 class="text-white text-3xl font-bold mb-2">Curated Impact Goods</h2>
+<p class="text-gray-400">Select a cause to filter products supporting that mission.</p>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-3 overflow-x-auto hide-scrollbar pb-2 md:pb-0 w-full md:w-auto">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary text-[#112217] px-5 transition-transform hover:scale-105">
+<span class="text-sm font-bold">All Goods</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-[#23482f] border border-[#23482f] hover:border-primary/50 text-white px-5 transition-all hover:bg-[#2d5c3c]">
+<span class="material-symbols-outlined text-[16px]">forest</span>
+<span class="text-sm font-medium">Reforestation</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-[#23482f] border border-[#23482f] hover:border-primary/50 text-white px-5 transition-all hover:bg-[#2d5c3c]">
+<span class="material-symbols-outlined text-[16px]">school</span>
+<span class="text-sm font-medium">Education</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-[#23482f] border border-[#23482f] hover:border-primary/50 text-white px-5 transition-all hover:bg-[#2d5c3c]">
+<span class="material-symbols-outlined text-[16px]">water_drop</span>
+<span class="text-sm font-medium">Water</span>
+</button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[minmax(300px,auto)]">
+<!-- Item 1: Featured Large (2x2) -->
+<div class="group relative sm:col-span-2 sm:row-span-2 rounded-2xl overflow-hidden bg-surface-dark shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Macro photography of dark purple acai berries on a branch" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCxomy3JHD5q1sWstoAip9ShTKdzjmyQUmSyJmMIGY9M3i9bRc08vTPBVbG489HqAVIiaEvBL4AGz4AdMv6ZK_gjRfWEQKw2o25-hlHNerVqykh_V3obF_KShTPvbdP_SEIvRPMSLPIqmVqLVJfHrrtbpNKmufNYWYJZqBJ1MoVRPhfMd0fgq-OjZZGfwcLxVNw5J-nxs1phITdX4aRzzQ5ela86axrCdQaRtRdgKM0BYdIXWKQ9TlimyF6mjGiImsAfPH-ggy59drN");'>
+</div>
+<div class="absolute inset-0 bg-gradient-card"></div>
+<div class="absolute top-4 left-4 z-20">
+<div class="inline-flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md px-3 py-1.5 border border-white/10 shadow-lg">
+<span class="material-symbols-outlined text-primary text-sm">star</span>
+<span class="text-xs font-bold text-white uppercase tracking-wider">Featured Harvest</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-6 md:p-8 z-20 flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<div>
+<h3 class="text-white text-3xl font-bold leading-tight mb-1 group-hover:text-primary transition-colors">Wild-Harvested Acai</h3>
+<p class="text-gray-300 text-lg mb-4 line-clamp-2">Direct from the Amazonian floodplain. High antioxidant content.</p>
+</div>
+</div>
+<!-- Impact Breakdown -->
+<div class="bg-black/40 backdrop-blur-sm rounded-xl p-4 border border-white/10 mb-2">
+<div class="flex items-center gap-3 mb-2">
+<div class="bg-primary/20 p-2 rounded-full">
+<span class="material-symbols-outlined text-primary">park</span>
+</div>
+<div>
+<p class="text-xs text-primary font-bold uppercase">Impact Breakdown</p>
+<p class="text-white text-sm">Protects <strong class="text-white">10m²</strong> of Primary Rainforest</p>
+</div>
+</div>
+<div class="w-full bg-gray-700 rounded-full h-1.5 mt-1">
+<div class="bg-primary h-1.5 rounded-full" style="width: 75%"></div>
+</div>
+<p class="text-[10px] text-gray-400 mt-1 text-right">Goal: 50,000m² Protected</p>
+</div>
+<button class="w-full flex items-center justify-between rounded-lg bg-primary px-6 py-4 text-[#112217] text-base font-bold hover:bg-white transition-colors">
+<span class="flex items-center gap-2">
+                            Protect Rainforest
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</span>
+<span>$24.00 / kg</span>
+</button>
+</div>
+</div>
+<!-- Item 2: Standard Vertical (1x2) -->
+<div class="group relative rounded-2xl overflow-hidden bg-surface-dark shadow-lg row-span-2 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Close up of raw cacao beans in a wooden box" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAmJWmjhLwAXUACkeMwLc9rSIdsrrecxmrL55R7DROIAIgiMeJAL--B4bt0AoCPMASzS27t3vRP_cX-g3JrWkYXdE1ayy96VWRoHxcwnBUPJZQjSzp7NDIGyJPpHFvEBmGfjB_PBa56cGqHj-ELw5Kgh1HFfhKtW8PBKq0ljWrQ_8zWTqQh-rtgRy5CfcXBvaPXr9DZWZsR4Nw5sEDVHCyriNuN0GWTmrlUhaOzFy4Go3HSTP2XNXxyAsz0EIfDrKB-wkp7nyFS0HDH");'>
+</div>
+<div class="absolute inset-0 bg-gradient-card"></div>
+<div class="absolute top-4 right-4 z-20">
+<button class="size-8 rounded-full bg-black/40 backdrop-blur-sm text-white flex items-center justify-center hover:bg-primary hover:text-black transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-5 z-20 flex flex-col gap-3">
+<div class="inline-flex self-start items-center gap-1.5 rounded-full bg-[#1c3325]/90 backdrop-blur-md px-2.5 py-1 border border-primary/20">
+<span class="material-symbols-outlined text-primary text-xs">agriculture</span>
+<span class="text-xs font-semibold text-primary">Soil Health</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-white mb-1">Heirloom Cacao</h3>
+<p class="text-sm text-gray-300 line-clamp-2">Regenerative farming practices that restore soil nutrients.</p>
+</div>
+<button class="mt-1 w-full flex items-center justify-between rounded-lg bg-[#23482f] px-4 py-3 text-sm font-bold text-white transition-colors group-hover:bg-primary group-hover:text-[#112217]">
+<span>Regenerate Soil</span>
+<span>$14.50</span>
+</button>
+</div>
+</div>
+<!-- Item 3: Standard (1x1) -->
+<div class="group relative rounded-2xl overflow-hidden bg-surface-dark shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Dark roasted coffee beans texture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD75nMy9wmFcFz7Z__pKQubmXPgNwwv-CD5qyO61vUpmXHafer4tNIVsmMnC0ewsoDvZ_uIodjdav8_UCvcXVBKH6jmxjEnHQe-IRtwZkACUlCxZ86a2GXtXNF3U679LDIUMzjbB0szO4woZlMUcgsh91a36T7SQzK4xc1WHglUQBmhfp3A_tXWW4_E4B2-HZlRDjN2Mx2b25fnTePyNuNyGVFj9CtpuDYaZ3OiNdGptIE6c9Sa7gumtxTQf7UdAevny4FJnNE_oTs9");'>
+</div>
+<div class="absolute inset-0 bg-gradient-card"></div>
+<div class="absolute bottom-0 left-0 w-full p-5 z-20 flex flex-col gap-3">
+<div class="inline-flex self-start items-center gap-1.5 rounded-full bg-[#1c3325]/90 backdrop-blur-md px-2.5 py-1 border border-primary/20">
+<span class="material-symbols-outlined text-primary text-xs">school</span>
+<span class="text-xs font-semibold text-primary">Education</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-white mb-0.5">Shade-Grown Arabica</h3>
+<p class="text-xs text-gray-300">Supports 3 hrs technical training</p>
+</div>
+<button class="w-full flex items-center justify-between rounded-lg bg-[#23482f] px-4 py-2.5 text-sm font-bold text-white transition-colors group-hover:bg-primary group-hover:text-[#112217]">
+<span>Fund Training</span>
+<span>$18.00</span>
+</button>
+</div>
+</div>
+<!-- Item 4: Data Tile (Non-product) -->
+<div class="relative rounded-2xl overflow-hidden bg-[#23482f] shadow-lg flex flex-col p-6 justify-between border border-primary/10">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-[100px] text-white">monitoring</span>
+</div>
+<div>
+<h4 class="text-primary font-bold text-sm uppercase tracking-wider mb-1">Monthly Impact</h4>
+<p class="text-white text-3xl font-black">$45,200</p>
+<p class="text-gray-300 text-sm mt-1">Raised by the community this month for farmers.</p>
+</div>
+<div class="mt-4">
+<div class="flex justify-between text-xs text-gray-300 mb-1">
+<span>Goal</span>
+<span>90%</span>
+</div>
+<div class="w-full bg-black/30 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 90%"></div>
+</div>
+</div>
+<button class="mt-4 w-full rounded-lg border border-primary/30 text-primary hover:bg-primary hover:text-[#112217] px-4 py-2 text-sm font-bold transition-colors">
+                    View Real-time Data
+                </button>
+</div>
+<!-- Item 5: Standard (1x1) -->
+<div class="group relative rounded-2xl overflow-hidden bg-surface-dark shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Golden honey dripping from a wooden dipper" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAZkTUPDmzN1fgMDC0Rg6i3-OO-tJWIpnFimKq12RL_VcCLv65GfjUK2ILFtquQ6kJKdDu_iDIzGabcT3J8XA_C_VOHt20-aFFEHHuS11bV8-lyg3ZwvLoZ7BdVtE6xaC8cZkgsPuNJ4AoNxP3zHFOu1-2_xBjOUvTWH710QrpkzbbOTXv0fzBxPBoHbecXxjK_dMzUOen0JOWZsBxefyKJiMbSVP2wcmszzNAt8N9cbp4n8q-TQQGC7EXuZFIN8Z4-3RCcvCAkXu7u");'>
+</div>
+<div class="absolute inset-0 bg-gradient-card"></div>
+<div class="absolute bottom-0 left-0 w-full p-5 z-20 flex flex-col gap-3">
+<div class="inline-flex self-start items-center gap-1.5 rounded-full bg-[#1c3325]/90 backdrop-blur-md px-2.5 py-1 border border-primary/20">
+<span class="material-symbols-outlined text-primary text-xs">pets</span>
+<span class="text-xs font-semibold text-primary">Pollinators</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-white mb-0.5">Native Bee Honey</h3>
+<p class="text-xs text-gray-300">Funds local bee colony research.</p>
+</div>
+<button class="w-full flex items-center justify-between rounded-lg bg-[#23482f] px-4 py-2.5 text-sm font-bold text-white transition-colors group-hover:bg-primary group-hover:text-[#112217]">
+<span>Fund Research</span>
+<span>$12.00</span>
+</button>
+</div>
+</div>
+<!-- Item 6: Standard (1x1) -->
+<div class="group relative rounded-2xl overflow-hidden bg-surface-dark shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Close up of a reusable organic cotton tote bag texture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDvikXa90dC1DnhzLI2pgOJpNMClGlekUbVtQRFr3OEEi1jZXVMUw2KzX-xpCjtbGsgVsrrpBFMSrhjI8RWaMWhjWuheVaCvbXXx3DrHsuMzhTcv7TW5JWFH_eSxKzWQDkTADcUySA2mEiffyYK0qqhHBNhFZyJ9D1sick5FMgcZ_hzfscWExxhUec55DD2G5rNqtdBfJvPnEKmFvF4fnmycCrdh6lBS10uxdff2YNYniLKnrkyhWsLjYMuAfjHLh6QtrT8aj6JK8o8");'>
+</div>
+<div class="absolute inset-0 bg-gradient-card"></div>
+<div class="absolute bottom-0 left-0 w-full p-5 z-20 flex flex-col gap-3">
+<div class="inline-flex self-start items-center gap-1.5 rounded-full bg-[#1c3325]/90 backdrop-blur-md px-2.5 py-1 border border-primary/20">
+<span class="material-symbols-outlined text-primary text-xs">recycling</span>
+<span class="text-xs font-semibold text-primary">Zero Waste</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-white mb-0.5">Organic Cotton Tote</h3>
+<p class="text-xs text-gray-300">Removes 1lb of ocean plastic.</p>
+</div>
+<button class="w-full flex items-center justify-between rounded-lg bg-[#23482f] px-4 py-2.5 text-sm font-bold text-white transition-colors group-hover:bg-primary group-hover:text-[#112217]">
+<span>Clean Oceans</span>
+<span>$25.00</span>
+</button>
+</div>
+</div>
+<!-- Item 7: Standard (1x1) -->
+<div class="group relative rounded-2xl overflow-hidden bg-surface-dark shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Dried vanilla beans bundle macro shot" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDj4gJ9QC4gX_aiJzX6gCvc4ayr8aF6E95pP_nZmMUMEp9nNkAD2wRZ-rF_3AL3JKZhQPEeEElKsc8EqDCPkjmDm4eXMIxGSTjctAgABWnD3uAeDiILYb_ySSfWx3riVu3BVC-k2fqAN_-Kts2-OsztFYh0k9chCYFuBUQyRPq8ess2yehF5XIIrUrFIsfIwqsx95RO9eFvxefok792c_NVN9DfSfUC3e6vgfS4Z5qZRs2qRGrsQEo_neiDmqvQy6kvgHbFrKyPSIEt");'>
+</div>
+<div class="absolute inset-0 bg-gradient-card"></div>
+<div class="absolute bottom-0 left-0 w-full p-5 z-20 flex flex-col gap-3">
+<div class="inline-flex self-start items-center gap-1.5 rounded-full bg-[#1c3325]/90 backdrop-blur-md px-2.5 py-1 border border-primary/20">
+<span class="material-symbols-outlined text-primary text-xs">diversity_3</span>
+<span class="text-xs font-semibold text-primary">Community</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-white mb-0.5">Spiced Vanilla</h3>
+<p class="text-xs text-gray-300">Supports Women's Farming Co-op.</p>
+</div>
+<button class="w-full flex items-center justify-between rounded-lg bg-[#23482f] px-4 py-2.5 text-sm font-bold text-white transition-colors group-hover:bg-primary group-hover:text-[#112217]">
+<span>Empower Women</span>
+<span>$32.00</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Simple Footer -->
+<footer class="w-full bg-[#0a160f] border-t border-[#23482f] py-10 mt-12">
+<div class="max-w-[1440px] mx-auto px-4 md:px-10 lg:px-40 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2 text-white/50">
+<span class="material-symbols-outlined text-[20px]">eco</span>
+<p class="text-sm">© 2024 The Harvest Market. Certified B Corp.</p>
+</div>
+<div class="flex gap-6">
+<a class="text-gray-400 hover:text-primary text-sm" href="#">Privacy Policy</a>
+<a class="text-gray-400 hover:text-primary text-sm" href="#">Terms of Service</a>
+<a class="text-gray-400 hover:text-primary text-sm" href="#">Instagram</a>
+</div>
+</div>
+</footer>
+</body></html>

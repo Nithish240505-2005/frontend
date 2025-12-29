@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Regenerative Toolkit</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                        "card-dark": "#162b1d",
+                        "card-border": "#23482f",
+                        "text-secondary": "#92c9a4"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-card-border bg-background-dark/95 backdrop-blur-sm px-6 py-3 lg:px-10">
+<div class="flex items-center gap-4 text-white">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M47.2426 24L24 47.2426L0.757355 24L24 0.757355L47.2426 24ZM12.2426 21H35.7574L24 9.24264L12.2426 21Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Regenerative Toolkit</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<nav class="hidden md:flex items-center gap-9">
+<a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Library</a>
+<a class="text-text-secondary text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">About</a>
+<a class="text-text-secondary text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Community</a>
+<a class="text-text-secondary text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Donate</a>
+</nav>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-card-border" data-alt="Profile picture placeholder with abstract green pattern" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBSWmT4yNCCgRL_m46_oWb9vUbah5CRLw37LV686i7OT8KtnVrBQq9rqI9XZfLxlbiw7ioqiCiFm09SlrQFI5Y_Vzgy_StnRERwSRSJsJKPT-niK0mGOEhjIcUUYkK-pnmjDF-PQ4fcGi1_ORWDWugMgPOzekJ3X_l07kieeklpSVBcmi9-Vn3yLMM55rhPGHAIQnjGI9P_kG3uivv78ruuWiVcz7whah-0UDac4vZ_KYCFbHPWhGuE1GZycZCKD8Es5NLLtKgXjsYS");'></div>
+</div>
+</header>
+<main class="flex-1 flex flex-col items-center w-full px-4 py-8 md:px-10 lg:px-20">
+<div class="w-full max-w-7xl flex flex-col gap-8">
+<!-- Hero Section -->
+<div class="flex flex-col gap-4 py-4 md:py-8">
+<h1 class="text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em]">The Regenerative Toolkit</h1>
+<p class="text-text-secondary text-lg font-normal leading-normal max-w-2xl">Open-source knowledge for the modern steward. Explore our curated library of techniques designed to restore soil health, increase biodiversity, and create resilient farming systems.</p>
+</div>
+<!-- Search & Filters Container -->
+<div class="flex flex-col gap-6 bg-card-dark rounded-xl p-6 border border-card-border shadow-xl">
+<!-- Search Bar -->
+<div class="w-full">
+<label class="flex flex-col h-14 w-full group">
+<div class="flex w-full flex-1 items-stretch rounded-lg bg-background-dark border border-card-border group-focus-within:border-primary transition-colors">
+<div class="text-text-secondary flex items-center justify-center pl-4 pr-2">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg bg-transparent text-white placeholder:text-text-secondary px-2 text-base font-normal leading-normal focus:outline-none border-none ring-0 focus:ring-0" placeholder="Search for techniques (e.g., Biochar, Swales)..."/>
+</div>
+</label>
+</div>
+<!-- Filter Rows -->
+<div class="flex flex-col md:flex-row justify-between gap-4 items-start md:items-center border-t border-card-border pt-4">
+<!-- Topic Chips -->
+<div class="flex gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-hide">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-primary text-background-dark px-4 transition-transform active:scale-95">
+<p class="text-sm font-bold leading-normal">All Topics</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-card-border hover:bg-card-border/80 px-4 transition-colors">
+<p class="text-white text-sm font-medium leading-normal">Soil Health</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-card-border hover:bg-card-border/80 px-4 transition-colors">
+<p class="text-white text-sm font-medium leading-normal">Water Management</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-card-border hover:bg-card-border/80 px-4 transition-colors">
+<p class="text-white text-sm font-medium leading-normal">Agroforestry</p>
+</button>
+</div>
+<!-- Dropdown Filters -->
+<div class="flex gap-3 flex-wrap">
+<div class="relative group/dropdown">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg border border-card-border hover:border-text-secondary bg-transparent px-3 transition-colors">
+<p class="text-text-secondary text-sm font-medium leading-normal">Difficulty</p>
+<span class="material-symbols-outlined text-text-secondary text-[20px]">expand_more</span>
+</button>
+</div>
+<div class="relative group/dropdown">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg border border-card-border hover:border-text-secondary bg-transparent px-3 transition-colors">
+<p class="text-text-secondary text-sm font-medium leading-normal">Cost</p>
+<span class="material-symbols-outlined text-text-secondary text-[20px]">expand_more</span>
+</button>
+</div>
+<div class="relative group/dropdown">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg border border-card-border hover:border-text-secondary bg-transparent px-3 transition-colors">
+<p class="text-text-secondary text-sm font-medium leading-normal">Region</p>
+<span class="material-symbols-outlined text-text-secondary text-[20px]">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Grid Results -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<article class="group flex flex-col overflow-hidden rounded-xl bg-card-dark border border-card-border hover:border-primary transition-all duration-300 hover:shadow-[0_0_20px_rgba(19,236,91,0.1)] cursor-pointer h-full">
+<div class="aspect-[4/3] w-full bg-[#0d1811] relative flex items-center justify-center overflow-hidden border-b border-card-border">
+<!-- Image overlay for sketch effect -->
+<div class="absolute inset-0 bg-background-dark/20 z-10 mix-blend-multiply"></div>
+<div class="bg-cover bg-center w-full h-full opacity-90 group-hover:scale-105 transition-transform duration-500 sepia-[.2] grayscale-[.3]" data-alt="Illustration of Inga Alley Cropping showing tree rows" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC5slMGSfw1aMOwfnpL2m0PEw5HdSRttKJapMdaWjy3Q4FOyGendYx9MB1Yiktdr8ibhInXcWPjDnZT0hoHUO10W2SBs6aubvY3zifXE6hLtcBinHQAIwHJgECX3-VHg1uH11Apfj-EuNbUS5Gq8ZBsQzFXaE5L0WBceR_JbxiYFu2_fnlMoB2Ot5MYutwFsuo0f9bJ013HZaxr-mwNxWtYuWdZhXMsPDvVYLWsJnDcwvDkcGPQCcqN4vQ3UZESmDEJkTyqmOD_Q4xp');"></div>
+<div class="absolute top-3 right-3 z-20 bg-background-dark/80 backdrop-blur-md px-2 py-1 rounded text-xs font-bold text-white border border-card-border">Agroforestry</div>
+</div>
+<div class="flex flex-col p-5 gap-3 flex-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="text-lg font-bold text-white group-hover:text-primary transition-colors">Inga Alley Cropping</h3>
+<span class="material-symbols-outlined text-text-secondary group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all text-[20px]">arrow_outward</span>
+</div>
+<p class="text-text-secondary text-sm line-clamp-3">A sustainable system using nitrogen-fixing Inga trees in alleys to restore degraded soils and maintain yields.</p>
+<div class="mt-auto pt-4 flex flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded-md bg-card-border/50 text-xs font-medium text-white border border-card-border">Moderate</span>
+<span class="px-2.5 py-1 rounded-md bg-card-border/50 text-xs font-medium text-primary border border-card-border">Low Cost</span>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="group flex flex-col overflow-hidden rounded-xl bg-card-dark border border-card-border hover:border-primary transition-all duration-300 hover:shadow-[0_0_20px_rgba(19,236,91,0.1)] cursor-pointer h-full">
+<div class="aspect-[4/3] w-full bg-[#0d1811] relative flex items-center justify-center overflow-hidden border-b border-card-border">
+<div class="absolute inset-0 bg-background-dark/20 z-10 mix-blend-multiply"></div>
+<div class="bg-cover bg-center w-full h-full opacity-90 group-hover:scale-105 transition-transform duration-500 sepia-[.2] grayscale-[.3]" data-alt="Diagrammatic sketch of a biochar kiln process" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBbpAfr0N8KzJ8I6zsFsRjbfzAO0oKNNq1mr07PShsAjcGNtI9M3qE4cVwlZDIRuc36m5ZRYzSg8YcmH7J85os8lsjqzXiM4w9hmBX0UKKW-_L6NX1QKOFWKz7pd5mMDdKXa8CB6AgAytI5R0hJ5zzrl7aY4-jSf0GrA4wB55sSfEzgY8F6WwmMzd_FIaGwG-KJHMK3gjHGjiUqwEvI9dNi0IS4024meMZFLt7BQx1fwhRYwl3PcZ3-HWZ1-OU7yxm2_GjH-sF4Gr0H');"></div>
+<div class="absolute top-3 right-3 z-20 bg-background-dark/80 backdrop-blur-md px-2 py-1 rounded text-xs font-bold text-white border border-card-border">Soil Health</div>
+</div>
+<div class="flex flex-col p-5 gap-3 flex-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="text-lg font-bold text-white group-hover:text-primary transition-colors">Biochar Production</h3>
+<span class="material-symbols-outlined text-text-secondary group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all text-[20px]">arrow_outward</span>
+</div>
+<p class="text-text-secondary text-sm line-clamp-3">Convert agricultural waste into stable carbon to sequester CO2 and dramatically improve soil water retention.</p>
+<div class="mt-auto pt-4 flex flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded-md bg-card-border/50 text-xs font-medium text-primary border border-card-border">Easy</span>
+<span class="px-2.5 py-1 rounded-md bg-card-border/50 text-xs font-medium text-white border border-card-border">Medium Cost</span>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="group flex flex-col overflow-hidden rounded-xl bg-card-dark border border-card-border hover:border-primary transition-all duration-300 hover:shadow-[0_0_20px_rgba(19,236,91,0.1)] cursor-pointer h-full">
+<div class="aspect-[4/3] w-full bg-[#0d1811] relative flex items-center justify-center overflow-hidden border-b border-card-border">
+<div class="absolute inset-0 bg-background-dark/20 z-10 mix-blend-multiply"></div>
+<div class="bg-cover bg-center w-full h-full opacity-90 group-hover:scale-105 transition-transform duration-500 sepia-[.2] grayscale-[.3]" data-alt="Landscape sketch of swales and contours on a hillside" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDqUO858GEmm0DnS_bt4hpTjPaft1IvvFPzpXCuHRuUJruqV5A27SJUaNf7eHDwzvv_Z-BMq3BH3Itt3Q68wBZHaP4SadxZ91COjsHuCPdGoaMbJtfjfcYeZAK0-PMTdK-xIpOcm8PV7KpcW9ll1LDRO92aP4EuGyCO1EXgVZHFxRCBFfKyVCmSFQtkz5nkFlCe1B2GWiDBcW4XpIXjL18ni2U419R3x7kxZrgrhmIKq5Q5rBRgQVy3cs5h_IS8N_6dx3hse17Qdsfv');"></div>
+<div class="absolute top-3 right-3 z-20 bg-background-dark/80 backdrop-blur-md px-2 py-1 rounded text-xs font-bold text-white border border-card-border">Water Mgmt</div>
+</div>
+<div class="flex flex-col p-5 gap-3 flex-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="text-lg font-bold text-white group-hover:text-primary transition-colors">Swale Construction</h3>
+<span class="material-symbols-outlined text-text-secondary group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all text-[20px]">arrow_outward</span>
+</div>
+<p class="text-text-secondary text-sm line-clamp-3">Design earthworks on contour to slow, spread, and sink rainwater into the landscape landscape landscape landscape.</p>
+<div class="mt-auto pt-4 flex flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded-md bg-card-border/50 text-xs font-medium text-white border border-card-border">Advanced</span>
+<span class="px-2.5 py-1 rounded-md bg-card-border/50 text-xs font-medium text-primary border border-card-border">Low Cost</span>
+</div>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="group flex flex-col overflow-hidden rounded-xl bg-card-dark border border-card-border hover:border-primary transition-all duration-300 hover:shadow-[0_0_20px_rgba(19,236,91,0.1)] cursor-pointer h-full">
+<div class="aspect-[4/3] w-full bg-[#0d1811] relative flex items-center justify-center overflow-hidden border-b border-card-border">
+<div class="absolute inset-0 bg-background-dark/20 z-10 mix-blend-multiply"></div>
+<div class="bg-cover bg-center w-full h-full opacity-90 group-hover:scale-105 transition-transform duration-500 sepia-[.2] grayscale-[.3]" data-alt="Sketch of cows grazing under trees in silvopasture system" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCFfvFQiZtegWz0jl718nWbCtPP2c7axMpGNT6bhSj-09KVr3ZKsZvp6hFuiuoBxPNIgp6NUaI2o3iLKDlDpyEOdXa8ywI2OHBVJPRHbJ81br9HSCAFnmv_HhX8_blkGESz7FYP4NGRgsqcHrjevwZYYruq1fxmfSADKbLHwb4Gbb4lhA6XEd7u-c7P_rIQnVMUrT9ZBRTPHvUvuOBOwlWd-5ClAS1-NdB0h2D6Mjwa1jDuB-rvgN5FOZL0rdwnkDz_mV4jKuJlECKu');"></div>
+<div class="absolute top-3 right-3 z-20 bg-background-dark/80 backdrop-blur-md px-2 py-1 rounded text-xs font-bold text-white border border-card-border">Animals</div>
+</div>
+<div class="flex flex-col p-5 gap-3 flex-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="text-lg font-bold text-white group-hover:text-primary transition-colors">Silvopasture</h3>
+<span class="material-symbols-outlined text-text-secondary group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all text-[20px]">arrow_outward</span>
+</div>
+<p class="text-text-secondary text-sm line-clamp-3">Integration of trees, forage, and livestock grazing operations for mutually beneficial results.</p>
+<div class="mt-auto pt-4 flex flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded-md bg-card-border/50 text-xs font-medium text-white border border-card-border">Advanced</span>
+<span class="px-2.5 py-1 rounded-md bg-card-border/50 text-xs font-medium text-white border border-card-border">High Cost</span>
+</div>
+</div>
+</article>
+<!-- Card 5 -->
+<article class="group flex flex-col overflow-hidden rounded-xl bg-card-dark border border-card-border hover:border-primary transition-all duration-300 hover:shadow-[0_0_20px_rgba(19,236,91,0.1)] cursor-pointer h-full">
+<div class="aspect-[4/3] w-full bg-[#0d1811] relative flex items-center justify-center overflow-hidden border-b border-card-border">
+<div class="absolute inset-0 bg-background-dark/20 z-10 mix-blend-multiply"></div>
+<div class="bg-cover bg-center w-full h-full opacity-90 group-hover:scale-105 transition-transform duration-500 sepia-[.2] grayscale-[.3]" data-alt="Hand drawn illustration of cover crops in a field" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA9VxbS1YW-dCUXeGsnAqIyKulNIhwe9Ub5EHTNpH1i4P-z88yf0ZnWn_84ptqil8MrMVBLSxtrHi8saAZKBd8hvNncQsjdofb6NmYIddbZmHyWK8HGCb9o7mBiaBT6RXm8Bej-IQDJxgUWLdKuWXbNU1TQuCiYKN7097eiep58oWgKs7zLTkL1nEDUgV-otMQirJm4wtdIa2WxHztLw0ChXgbTdQ1Flr5mkRXDnK2R1ptAWUCEWfdwqie0HgYiCDDhY-HCTGAdmLyj');"></div>
+<div class="absolute top-3 right-3 z-20 bg-background-dark/80 backdrop-blur-md px-2 py-1 rounded text-xs font-bold text-white border border-card-border">Soil Health</div>
+</div>
+<div class="flex flex-col p-5 gap-3 flex-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="text-lg font-bold text-white group-hover:text-primary transition-colors">Cover Cropping</h3>
+<span class="material-symbols-outlined text-text-secondary group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all text-[20px]">arrow_outward</span>
+</div>
+<p class="text-text-secondary text-sm line-clamp-3">Planting non-cash crops to manage soil erosion, soil fertility, soil quality, water, weeds, pests.</p>
+<div class="mt-auto pt-4 flex flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded-md bg-card-border/50 text-xs font-medium text-primary border border-card-border">Easy</span>
+<span class="px-2.5 py-1 rounded-md bg-card-border/50 text-xs font-medium text-primary border border-card-border">Low Cost</span>
+</div>
+</div>
+</article>
+<!-- Card 6 -->
+<article class="group flex flex-col overflow-hidden rounded-xl bg-card-dark border border-card-border hover:border-primary transition-all duration-300 hover:shadow-[0_0_20px_rgba(19,236,91,0.1)] cursor-pointer h-full">
+<div class="aspect-[4/3] w-full bg-[#0d1811] relative flex items-center justify-center overflow-hidden border-b border-card-border">
+<div class="absolute inset-0 bg-background-dark/20 z-10 mix-blend-multiply"></div>
+<div class="bg-cover bg-center w-full h-full opacity-90 group-hover:scale-105 transition-transform duration-500 sepia-[.2] grayscale-[.3]" data-alt="Technical drawing of Keyline Plowing equipment" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDcTsmiOT0DogPoMTGIfwDO76QHBDz8z6jJoQsMFmeJLOGiq2MPhv6h0uCq9PweU4Ep9XTjLy6cqAXdBJiJ0QY3q9a_Cctkv4aac7dmhOCPyH_qqa-OGapslD8VKirwt6arZUltcXYu3q-N6aW2iMBMFkpzCRphIH78kQo7tt2vwOhnaGE7GlVzSe5_BirRH57bER8XqZKsTxFijcXOtxQ-zbf9HaB51kyIHcDV597VotzUSN-_FgLVjKLqqb0zdkjQn7ds3Ha61Qda');"></div>
+<div class="absolute top-3 right-3 z-20 bg-background-dark/80 backdrop-blur-md px-2 py-1 rounded text-xs font-bold text-white border border-card-border">Water Mgmt</div>
+</div>
+<div class="flex flex-col p-5 gap-3 flex-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="text-lg font-bold text-white group-hover:text-primary transition-colors">Keyline Plowing</h3>
+<span class="material-symbols-outlined text-text-secondary group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all text-[20px]">arrow_outward</span>
+</div>
+<p class="text-text-secondary text-sm line-clamp-3">A specific cultivation pattern based on topography to maximize water use efficiency.</p>
+<div class="mt-auto pt-4 flex flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded-md bg-card-border/50 text-xs font-medium text-white border border-card-border">Advanced</span>
+<span class="px-2.5 py-1 rounded-md bg-card-border/50 text-xs font-medium text-white border border-card-border">Medium Cost</span>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination -->
+<div class="flex justify-center py-8">
+<button class="px-6 py-2 rounded-lg bg-card-border hover:bg-card-border/80 text-white font-medium transition-colors border border-transparent hover:border-text-secondary flex items-center gap-2">
+                        Load More Techniques
+                        <span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="border-t border-card-border py-12 px-6 md:px-20 bg-background-dark">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2">
+<div class="size-5 text-text-secondary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M47.2426 24L24 47.2426L0.757355 24L24 0.757355L47.2426 24ZM12.2426 21H35.7574L24 9.24264L12.2426 21Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-text-secondary text-sm">© 2023 Regenerative Toolkit</span>
+</div>
+<div class="flex gap-6 text-sm text-text-secondary">
+<a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="#">Terms of Use</a>
+<a class="hover:text-white transition-colors" href="#">Contribute</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Farmer’s Journey - AgroForest</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "primary-dark": "#0fae43",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#112217",
+                        "glass": "rgba(17, 34, 23, 0.75)",
+                        "glass-border": "rgba(255, 255, 255, 0.1)",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for better aesthetics in dark mode */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #112217; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #23482f; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #13ec5b; 
+        }
+        
+        .glass-panel {
+            background: rgba(17, 34, 23, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-node-active {
+            box-shadow: 0 0 15px rgba(19, 236, 91, 0.5);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-x-hidden">
+<!-- Top Navbar -->
+<header class="fixed top-0 w-full z-50 bg-[#112217]/90 backdrop-blur-sm border-b border-[#23482f]">
+<div class="px-4 md:px-10 py-3 flex items-center justify-between">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-white">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined text-3xl">forest</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">AgroForest</h2>
+</div>
+<div class="hidden md:flex items-center gap-9">
+<a class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Home</a>
+<a class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">The Journey</a>
+<a class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Program</a>
+<a class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Impact</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden sm:flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-6 bg-primary hover:bg-primary-dark transition-colors text-[#112217] text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Donate</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Container -->
+<div class="relative flex min-h-screen w-full flex-col pt-16">
+<!-- Hero Intro -->
+<section class="relative w-full h-[60vh] flex items-center justify-center overflow-hidden">
+<!-- Background Image -->
+<div class="absolute inset-0 z-0">
+<img alt="Mist rolling over lush green farm hills and valleys" class="w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4zKSoH57CehbUADXMFhIy2ETfsEyec4rMEr4IVJkcTsu7NzXdRW3VlohV4k64GD2CbxzLVD16NVz2Z2zeyfvOGMr_Gl3jMhWmV7rgt3XULvCTDs0KLg5YZw_AtaIFOvOoAs7r5vfSEUe16Pw3M0o9cRz6l-gFBb4Eg-g12bqBKLO9TZ32pVIFxg8pa50bVQCd-fVk-Gorkwmon8UyXePF6QeRCJzA8qGWNWyW_sKiZiEQ5afxj-DgcGjcrDn8iAFDjDN1IUDQaeBc"/>
+<div class="absolute inset-0 bg-gradient-to-b from-[#112217]/0 via-[#112217]/50 to-[#112217]"></div>
+</div>
+<div class="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center gap-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 border border-primary/30 text-primary text-xs font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm">public</span>
+                    Regenerative Program
+                </div>
+<h1 class="text-white text-4xl md:text-6xl font-black leading-tight tracking-tight">
+                    The 5-Year Transition
+                </h1>
+<p class="text-gray-300 text-lg md:text-xl font-light leading-relaxed max-w-2xl">
+                    Follow the journey from degraded soil to a thriving, self-sufficient ecosystem. Explore each stage of our regenerative farming program.
+                </p>
+<div class="flex gap-4 mt-4">
+<a class="flex items-center gap-2 text-white border-b border-primary pb-1 hover:text-primary transition-colors" href="#timeline-anchor">
+                        Begin the Journey
+                        <span class="material-symbols-outlined">arrow_downward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Sticky Timeline Navigation -->
+<div class="sticky top-[64px] z-40 bg-[#112217]/95 backdrop-blur-md border-y border-[#23482f] shadow-lg" id="timeline-anchor">
+<div class="max-w-[1200px] mx-auto overflow-x-auto no-scrollbar">
+<div class="flex items-center justify-between min-w-[800px] px-4 md:px-10 py-4">
+<!-- Year 1 -->
+<a class="group flex flex-col items-center gap-2 cursor-pointer min-w-[100px]" href="#year1">
+<div class="relative flex items-center justify-center">
+<div class="w-8 h-8 rounded-full bg-primary text-[#112217] flex items-center justify-center font-bold text-sm timeline-node-active z-10 transition-transform group-hover:scale-110">1</div>
+<div class="absolute top-1/2 left-full w-[calc(100vw/6)] h-[2px] bg-primary -z-0"></div>
+</div>
+<span class="text-primary text-xs font-bold uppercase tracking-wider">Foundation</span>
+</a>
+<!-- Year 2 -->
+<a class="group flex flex-col items-center gap-2 cursor-pointer min-w-[100px]" href="#year2">
+<div class="relative flex items-center justify-center">
+<div class="absolute top-1/2 right-full w-[calc(100vw/6)] h-[2px] bg-[#326744] -z-0"></div>
+<div class="w-8 h-8 rounded-full bg-[#112217] border-2 border-[#326744] text-[#92c9a4] flex items-center justify-center font-medium text-sm z-10 group-hover:border-primary group-hover:text-primary transition-colors">2</div>
+<div class="absolute top-1/2 left-full w-[calc(100vw/6)] h-[2px] bg-[#326744] -z-0"></div>
+</div>
+<span class="text-[#92c9a4] text-xs font-medium group-hover:text-primary transition-colors">Canopy</span>
+</a>
+<!-- Year 3 -->
+<a class="group flex flex-col items-center gap-2 cursor-pointer min-w-[100px]" href="#">
+<div class="relative flex items-center justify-center">
+<div class="absolute top-1/2 right-full w-[calc(100vw/6)] h-[2px] bg-[#326744] -z-0"></div>
+<div class="w-8 h-8 rounded-full bg-[#112217] border-2 border-[#326744] text-[#92c9a4] flex items-center justify-center font-medium text-sm z-10 group-hover:border-primary group-hover:text-primary transition-colors">3</div>
+<div class="absolute top-1/2 left-full w-[calc(100vw/6)] h-[2px] bg-[#326744] -z-0"></div>
+</div>
+<span class="text-[#92c9a4] text-xs font-medium group-hover:text-primary transition-colors">Integration</span>
+</a>
+<!-- Year 4 -->
+<a class="group flex flex-col items-center gap-2 cursor-pointer min-w-[100px]" href="#">
+<div class="relative flex items-center justify-center">
+<div class="absolute top-1/2 right-full w-[calc(100vw/6)] h-[2px] bg-[#326744] -z-0"></div>
+<div class="w-8 h-8 rounded-full bg-[#112217] border-2 border-[#326744] text-[#92c9a4] flex items-center justify-center font-medium text-sm z-10 group-hover:border-primary group-hover:text-primary transition-colors">4</div>
+<div class="absolute top-1/2 left-full w-[calc(100vw/6)] h-[2px] bg-[#326744] -z-0"></div>
+</div>
+<span class="text-[#92c9a4] text-xs font-medium group-hover:text-primary transition-colors">Harvest</span>
+</a>
+<!-- Year 5 -->
+<a class="group flex flex-col items-center gap-2 cursor-pointer min-w-[100px]" href="#">
+<div class="relative flex items-center justify-center">
+<div class="absolute top-1/2 right-full w-[calc(100vw/6)] h-[2px] bg-[#326744] -z-0"></div>
+<div class="w-8 h-8 rounded-full bg-[#112217] border-2 border-[#326744] text-[#92c9a4] flex items-center justify-center font-medium text-sm z-10 group-hover:border-primary group-hover:text-primary transition-colors">5</div>
+</div>
+<span class="text-[#92c9a4] text-xs font-medium group-hover:text-primary transition-colors">Self-Sufficient</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Year 1 Content Section (Active State) -->
+<section class="relative min-h-screen flex flex-col items-center justify-center py-20 px-4 md:px-10 overflow-hidden" id="year1">
+<!-- Background for Year 1: Barren/Degraded -->
+<div class="absolute inset-0 -z-10">
+<img alt="Dry cracked soil texture representing degraded land before planting" class="w-full h-full object-cover opacity-30 grayscale contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOZzQj_KuWeNKROZxMDvEFMq_43op4T6pNy9HOHBx60E2Km68ab7clcS1xeLGsxSZ13tCpXHXpGmFTtA4QtR472OumFM1TJKh_a-KhpHqqW6-CP0DIVT43BG1-2yKyYEMp7oXfJ06ZL6vS00tVnN0HSTRhOKiEExigzXI2S4F2fnezHihcOZ5FDfQ2ZZxB2O8EGvCrdblop_kRUfE0CflAzc2pOGfAuZmuHqeSE0PWlO7KnEvVsponksLFwQ44D09F0yrzVEp_7zFc"/>
+<div class="absolute inset-0 bg-[#112217]/80"></div>
+<!-- Animated decorative SVG elements in background -->
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[100px]"></div>
+<div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-yellow-600/10 rounded-full blur-[80px]"></div>
+</div>
+<div class="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Visual / Interactive SVG Area (Left side on desktop) -->
+<div class="lg:col-span-7 flex flex-col items-center justify-center min-h-[400px] relative">
+<!-- SVG Illustration -->
+<div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
+<img alt="Hands planting a small sapling into soil" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlya7fexgtLH44M60DNcBQvqmN8TSnknQGIuVUWPPAMBx3p1vKTF0D_ILUzc7rOioa5NdM-k_bqKGS7D-XYqhgm94tGKW2bOHzqUlopu0il6vmZm_j93yyzb0UU33WImP43C5HtOXBKIEeAdmYqcg1Qy6hBCdAxqzuLAd87Hqb-IqfyaLzT-o_hdsPRcyKtbl9ksC2u2oZaUPGWx1EMvPbDjWpfbSYmVG_DBlg1QZOu9ue6Yk-Aq4i-GWamc-pfQe5gwXZOpJCF65u"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<!-- Hotspots / Interactive Nodes -->
+<button class="absolute top-[60%] left-[30%] group/hotspot">
+<span class="relative flex h-6 w-6">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-6 w-6 bg-primary border-2 border-white items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-black font-bold">add</span>
+</span>
+</span>
+<!-- Tooltip -->
+<div class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 hidden group-hover/hotspot:block w-48 bg-black/90 text-white text-xs p-2 rounded rounded-b-none text-center">
+                                Nitrogen-fixing species planted
+                            </div>
+</button>
+<button class="absolute top-[40%] right-[25%] group/hotspot">
+<span class="relative flex h-6 w-6">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-6 w-6 bg-primary border-2 border-white items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-black font-bold">water_drop</span>
+</span>
+</span>
+<!-- Tooltip -->
+<div class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 hidden group-hover/hotspot:block w-48 bg-black/90 text-white text-xs p-2 rounded rounded-b-none text-center">
+                                Swales dug for water retention
+                            </div>
+</button>
+<div class="absolute bottom-6 left-6 text-white">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary">eco</span>
+<span class="text-sm font-bold uppercase tracking-wider text-primary">Action</span>
+</div>
+<h3 class="text-2xl font-bold">Planting Pioneers</h3>
+</div>
+</div>
+<!-- Progress Bar for this year -->
+<div class="w-full mt-6 px-2">
+<div class="flex justify-between text-xs text-gray-400 mb-2 uppercase font-medium">
+<span>Soil Preparation</span>
+<span>First Planting</span>
+<span>Cover Crops</span>
+</div>
+<div class="w-full h-2 bg-gray-700 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-2/3 rounded-full relative">
+<div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white/30 to-transparent"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Glassmorphism Modal / Info Card (Right side on desktop) -->
+<div class="lg:col-span-5 relative">
+<div class="glass-panel p-6 md:p-8 rounded-2xl md:-ml-12 lg:mt-12 relative z-20">
+<div class="flex items-center justify-between mb-4 border-b border-white/10 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">filter_drama</span>
+</div>
+<div>
+<h2 class="text-white text-xl font-bold">Year 1: Degradation &amp; Prep</h2>
+<p class="text-primary text-xs font-mono uppercase tracking-wide">Phase: Rehabilitation</p>
+</div>
+</div>
+<span class="text-gray-400 text-sm font-medium">0-12 Months</span>
+</div>
+<p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            We stop the slash-and-burn cycle immediately. The focus is on revitalizing the dead soil using nitrogen-fixing pioneer species. This creates the biomass needed for future abundance.
+                        </p>
+<!-- Key Metrics Grid -->
+<div class="grid grid-cols-2 gap-3 mb-6">
+<div class="bg-[#112217]/50 rounded-lg p-3 border border-white/5">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary text-sm">science</span>
+<span class="text-gray-400 text-xs">Soil pH</span>
+</div>
+<span class="text-white font-bold text-lg">5.5 <span class="text-xs text-primary font-normal">Recovering</span></span>
+</div>
+<div class="bg-[#112217]/50 rounded-lg p-3 border border-white/5">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary text-sm">co2</span>
+<span class="text-gray-400 text-xs">Carbon Seq.</span>
+</div>
+<span class="text-white font-bold text-lg">2.5t <span class="text-xs text-gray-500 font-normal">/hectare</span></span>
+</div>
+</div>
+<!-- Farmer Quote -->
+<div class="flex gap-4 items-start bg-primary/10 p-4 rounded-xl border border-primary/20 mb-6">
+<div class="w-10 h-10 rounded-full bg-gray-700 overflow-hidden flex-shrink-0">
+<img alt="Portrait of farmer smiling" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOji1Mvh4f0Xu2jzNJLbV6URJI6wpQG73JJ_ine954bBbG1HFuvs1mcHQvK_Wmdjk99sPtqEe0OOOMr_JOirnXH7LDY95j-glACAjgGErW1_MfbPGXMamQAug7-lEAVenCeHOVCRN3bkUuUpIzA6CIpnrc3VhHe1sLL9qEt1TBW-DA2JoflBozk_VNv4CgQCMJ9YC3uUOkLc9Dh8eKFvFkxcxLR-DzhlaEskOTILNO-NYog4YXuqwoXXKn5L9wuO9b0C8TQJ5K6_Sf"/>
+</div>
+<div>
+<p class="text-white text-xs italic mb-2">"The soil was hard as rock. Now with the new trees, I can see the water sinking in instead of washing away."</p>
+<p class="text-primary text-xs font-bold">— Mateo, Partner Farmer</p>
+</div>
+</div>
+<button class="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-white/10 hover:bg-white/20 text-white font-medium text-sm transition-all border border-white/5" onclick="document.getElementById('tech-details-year1').scrollIntoView({behavior: 'smooth'})">
+<span class="material-symbols-outlined text-lg">bar_chart</span>
+                            View Crop Technical Data
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Data Section (Table) -->
+<section class="relative py-20 bg-[#152a1d] border-t border-[#23482f]" id="tech-details-year1">
+<div class="px-4 md:px-10 max-w-[960px] mx-auto">
+<div class="flex flex-col gap-6 mb-10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">dataset</span>
+<h3 class="text-white text-2xl font-bold">Year 1 Crop Implementation</h3>
+</div>
+<p class="text-gray-400 max-w-2xl">
+                        Detailed breakdown of species introduced during the foundation phase. These crops are selected primarily for soil remediation rather than immediate yield.
+                    </p>
+</div>
+<!-- Table Component -->
+<div class="overflow-hidden rounded-xl border border-[#326744] bg-[#112217] shadow-xl">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-[#193322] border-b border-[#326744]">
+<th class="px-6 py-4 text-white text-sm font-semibold tracking-wide">Species Introduced</th>
+<th class="px-6 py-4 text-white text-sm font-semibold tracking-wide">Ecological Role</th>
+<th class="px-6 py-4 text-white text-sm font-semibold tracking-wide">Harvest Time</th>
+<th class="px-6 py-4 text-white text-sm font-semibold tracking-wide text-right">Target Yield</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#326744]">
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-green-900/50 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">grass</span>
+</div>
+<span class="text-white text-sm font-medium">Pigeon Peas</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/20 text-primary border border-primary/20">
+                                            Nitrogen Fixer
+                                        </span>
+</td>
+<td class="px-6 py-4 text-[#92c9a4] text-sm">6 Months</td>
+<td class="px-6 py-4 text-[#92c9a4] text-sm text-right">200 kg/ha</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-yellow-900/50 flex items-center justify-center text-yellow-500">
+<span class="material-symbols-outlined text-lg">nutrition</span>
+</div>
+<span class="text-white text-sm font-medium">Banana</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-500/20 text-yellow-500 border border-yellow-500/20">
+                                            Shade / Cash
+                                        </span>
+</td>
+<td class="px-6 py-4 text-[#92c9a4] text-sm">9 Months</td>
+<td class="px-6 py-4 text-[#92c9a4] text-sm text-right">150 bunches/ha</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-orange-900/50 flex items-center justify-center text-orange-400">
+<span class="material-symbols-outlined text-lg">spa</span>
+</div>
+<span class="text-white text-sm font-medium">Cocoa Seedlings</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-500/20 text-orange-400 border border-orange-500/20">
+                                            Long-term Cash
+                                        </span>
+</td>
+<td class="px-6 py-4 text-[#92c9a4] text-sm">3-4 Years</td>
+<td class="px-6 py-4 text-[#92c9a4] text-sm text-right">Growth Phase</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<!-- Year 2 Teaser (To imply scrolling/Next Steps) -->
+<section class="relative py-24 bg-[#112217] flex flex-col items-center justify-center border-t border-[#23482f]" id="year2">
+<div class="absolute inset-0 overflow-hidden">
+<div class="absolute -right-20 top-20 w-96 h-96 bg-[#326744]/20 rounded-full blur-[100px]"></div>
+</div>
+<div class="relative z-10 text-center px-4 max-w-2xl">
+<div class="w-16 h-16 rounded-full bg-[#112217] border-2 border-[#326744] text-[#92c9a4] flex items-center justify-center font-bold text-2xl mx-auto mb-6">2</div>
+<h2 class="text-white text-3xl font-bold mb-4">Year 2: The Canopy Forms</h2>
+<p class="text-gray-400 mb-8">
+                    As the pioneer species grow, they provide crucial shade for delicate cash crops like Cocoa. The ecosystem begins to regulate its own temperature.
+                </p>
+<button class="group flex items-center justify-center gap-2 mx-auto px-6 py-3 rounded-full bg-[#326744]/20 text-white border border-[#326744] hover:bg-[#326744] hover:border-primary hover:text-white transition-all">
+                    Explore Phase 2
+                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</section>
+</div>
+</body></html>

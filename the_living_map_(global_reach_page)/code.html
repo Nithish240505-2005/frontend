@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Living Map - Global Reach</title>
+<!-- Google Fonts & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                        "surface-dark": "#193322", 
+                        "surface-border": "#23482f"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                    boxShadow: {
+                        'glow': '0 0 15px rgba(19, 236, 91, 0.3)',
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="relative flex h-screen w-full flex-col bg-background-dark text-white font-display overflow-hidden selection:bg-primary selection:text-background-dark">
+<!-- Global Navigation Bar -->
+<header class="absolute top-0 left-0 right-0 z-50 flex items-center justify-between border-b border-surface-border bg-background-dark/90 backdrop-blur-md px-6 py-3 shadow-lg">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-white">
+<div class="flex size-8 items-center justify-center rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-2xl">forest</span>
+</div>
+<h2 class="text-white text-lg font-bold tracking-tight">The Living Map</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-white/80 hover:text-primary transition-colors text-sm font-medium" href="#">About</a>
+<a class="text-white/80 hover:text-primary transition-colors text-sm font-medium" href="#">Projects</a>
+<a class="text-white/80 hover:text-primary transition-colors text-sm font-medium" href="#">Impact</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<!-- Search Bar -->
+<label class="hidden sm:flex flex-col min-w-40 h-9 w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg bg-surface-dark border border-surface-border focus-within:border-primary transition-colors overflow-hidden">
+<div class="flex items-center justify-center pl-3 text-primary/70">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="flex w-full min-w-0 flex-1 resize-none bg-transparent border-none text-white focus:outline-0 focus:ring-0 placeholder:text-white/40 h-full px-3 text-sm font-normal" placeholder="Search region..." value=""/>
+</div>
+</label>
+<button class="flex items-center justify-center rounded-lg h-9 px-4 bg-primary hover:bg-green-400 text-background-dark text-sm font-bold tracking-wide transition-colors">
+                Donate
+            </button>
+</div>
+</header>
+<!-- Main Map Canvas -->
+<main class="relative flex-1 w-full bg-surface-dark overflow-hidden group/map">
+<!-- Map Background Image -->
+<div class="absolute inset-0 bg-cover bg-center opacity-80 mix-blend-overlay z-0" data-alt="Dark stylized satellite map of Earth from space with night lights" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuALlneDiwWBIZiirjb3Bi4izqXUi4XKMHw5iOKaYJLYTnlHfyco7KF3Tg9D1g1C2vyPYcKB2WiGjCmVH3CtXHdz3IGt33QmWkQwD1lhKssKJD7VwWW21gH-KOHxZ4ytI_Ipj0owAbaQimBGumHl9_-xM-Cxq55jL0huNkQOJMm46gy_03OcLV9Ts7ree_Qg2A3-hU5c_xFo5FLB6_rE3s2KHHHMPUeI-rBetc_adBUkFE4k7jX9RAmnY6_sMpQoutCJr8J2PY57npm2');">
+</div>
+<!-- Dark Overlay Gradient for better contrast -->
+<div class="absolute inset-0 bg-gradient-to-b from-background-dark/30 via-transparent to-background-dark/80 z-0 pointer-events-none"></div>
+<!-- Map Pins -->
+<!-- Active Pin (Honduras) -->
+<div class="absolute top-[40%] left-[35%] z-10 flex flex-col items-center gap-2 cursor-pointer group/pin">
+<div class="relative flex items-center justify-center">
+<div class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></div>
+<div class="relative inline-flex rounded-full h-4 w-4 bg-primary shadow-glow ring-4 ring-background-dark/50"></div>
+</div>
+<span class="text-xs font-bold text-primary bg-background-dark/80 px-2 py-0.5 rounded backdrop-blur-sm shadow-sm opacity-100 transition-opacity">Honduras</span>
+</div>
+<!-- Inactive Pin (Ghana) -->
+<div class="absolute top-[48%] left-[52%] z-10 flex flex-col items-center gap-2 cursor-pointer group/pin opacity-70 hover:opacity-100 transition-opacity">
+<div class="relative flex items-center justify-center">
+<div class="relative inline-flex rounded-full h-3 w-3 bg-white hover:bg-primary transition-colors shadow-lg ring-4 ring-background-dark/50"></div>
+</div>
+<span class="text-xs font-bold text-white group-hover/pin:text-primary bg-background-dark/80 px-2 py-0.5 rounded backdrop-blur-sm shadow-sm opacity-0 group-hover/pin:opacity-100 transition-opacity">Ghana</span>
+</div>
+<!-- Inactive Pin (Belize) -->
+<div class="absolute top-[38%] left-[33%] z-10 flex flex-col items-center gap-2 cursor-pointer group/pin opacity-70 hover:opacity-100 transition-opacity">
+<div class="relative flex items-center justify-center">
+<div class="relative inline-flex rounded-full h-3 w-3 bg-white hover:bg-primary transition-colors shadow-lg ring-4 ring-background-dark/50"></div>
+</div>
+</div>
+<!-- Field Dispatch Card (Popup) -->
+<!-- Positioned relative to map for demo, sliding in from right -->
+<div class="absolute right-6 top-24 bottom-6 w-[400px] z-20 flex flex-col pointer-events-none">
+<!-- The Card Container -->
+<div class="pointer-events-auto flex flex-col h-full bg-surface-dark/95 backdrop-blur-xl border border-surface-border rounded-xl shadow-2xl overflow-hidden animate-[fadeIn_0.5s_ease-out]">
+<!-- Video Header Area -->
+<div class="relative h-[320px] w-full shrink-0">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Vertical video thumbnail of a woman in a green forest holding a plant" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC8cU1lT88khjMGYJXcjFFE2xIpQeEYzFZB1_zJA7eBX9-b1N04CKyy-5d57EI4sEMJITxFpuJfzudIjxbxQu42uoBV-FSePzxl2RgHNvZ04JeBYc5i62vGWXpLRD0yRHa0uqYBmLDeOfIAIQMujixuczkLLJrdQ-t1HP14K-_t3BbNJbOqq5-3kzEfWQF0I1oSGmaE5Wp7IPcCpQqaglWpHJDZTzuwm0TBe7Fxc3lXxlMvJiztRGuwsyFGp0uCLeg3BDfZJqQFjB0D');">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dark via-transparent to-transparent"></div>
+<!-- Play Button Overlay -->
+<button class="absolute inset-0 flex items-center justify-center group/play">
+<div class="flex h-16 w-16 items-center justify-center rounded-full bg-primary/90 text-background-dark shadow-glow transition-transform group-hover/play:scale-110">
+<span class="material-symbols-outlined text-4xl ml-1">play_arrow</span>
+</div>
+</button>
+<!-- Top Tags -->
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="px-2 py-1 rounded-md bg-red-500/80 text-white text-xs font-bold uppercase tracking-wider backdrop-blur-sm flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                            Live Update
+                        </span>
+</div>
+<!-- Bottom Overlay Info -->
+<div class="absolute bottom-0 left-0 right-0 p-5 pt-12 bg-gradient-to-t from-surface-dark to-transparent">
+<div class="flex items-center gap-3 mb-2">
+<div class="h-8 w-8 rounded-full border border-primary bg-cover bg-center" data-alt="Portrait of Maria field lead" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB6Q2464AtiR4rmKndTe2H6uu2LXXFFWsj1PMc58Y-tv1L17HOXkdXJF9yNBFZZiZDKmxqJeXKVsUXAJhqLcybHtenM1n8UXU0taEwxe6Pu9HkuWBKvdq1c_TNjBhYVgIKmd3SRC_GXskbRReMekIJxdZw_gL_8AxDNZfakQF5ytort1d8iM1tZ1ezZdQqZhkpK_FBXWvEseU13npQRx2RxCcEUtnv2Xtv1Ob8v8ba0m9yD4MAA870AoFv2l234mo0F7eiGCgyujuSA')"></div>
+<div>
+<p class="text-white text-sm font-bold leading-tight">Maria Rodriguez</p>
+<p class="text-primary text-xs font-medium">Field Lead</p>
+</div>
+</div>
+<h3 class="text-white text-xl font-bold leading-tight">Olancho Region Dispatch</h3>
+<p class="text-white/60 text-sm mt-1">Honduras • <span class="text-primary/80">Active now</span></p>
+</div>
+</div>
+<!-- Stats & Content Area -->
+<div class="flex-1 overflow-y-auto p-5 pt-2">
+<!-- Weather Widget -->
+<div class="grid grid-cols-2 gap-3 mb-6">
+<div class="bg-background-dark/50 rounded-lg p-3 border border-white/5 flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<span class="material-symbols-outlined text-yellow-400">partly_cloudy_day</span>
+<span class="text-xs text-white/40 font-medium">TODAY</span>
+</div>
+<div>
+<span class="text-2xl font-bold text-white">28°C</span>
+<p class="text-xs text-white/60">High Humidity</p>
+</div>
+</div>
+<div class="bg-background-dark/50 rounded-lg p-3 border border-white/5 flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<span class="material-symbols-outlined text-blue-400">water_drop</span>
+<span class="text-xs text-white/40 font-medium">RAINFALL</span>
+</div>
+<div>
+<span class="text-2xl font-bold text-white">12<span class="text-sm font-normal text-white/60">mm</span></span>
+<p class="text-xs text-white/60">Last 24h</p>
+</div>
+</div>
+</div>
+<!-- Status Update -->
+<div class="mb-6">
+<h4 class="text-xs font-bold text-white/40 uppercase tracking-widest mb-3">Current Phase</h4>
+<div class="flex items-center gap-3 p-3 bg-primary/10 border border-primary/20 rounded-lg">
+<span class="text-2xl">🌱</span>
+<div>
+<p class="text-primary font-bold text-sm">Nursery Preparation</p>
+<p class="text-white/60 text-xs">Target: 5,000 Saplings</p>
+</div>
+</div>
+</div>
+<p class="text-white/70 text-sm leading-relaxed mb-6">
+                        "We've seen increased rainfall this week, which is perfect for the new cacao seedlings. The community is gathering tomorrow for the main planting event."
+                    </p>
+</div>
+<!-- Footer Actions -->
+<div class="p-5 border-t border-white/5 bg-background-dark/30">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 bg-primary hover:bg-green-400 transition-colors text-background-dark text-sm font-bold leading-normal">
+                        Support this region
+                    </button>
+</div>
+</div>
+</div>
+<!-- Map Controls (Zoom/Layers) -->
+<div class="absolute bottom-8 right-8 flex flex-col gap-2 z-10">
+<button class="flex size-10 items-center justify-center rounded-lg bg-surface-dark border border-surface-border text-white shadow-lg hover:bg-surface-border transition-colors group" title="Layers">
+<span class="material-symbols-outlined group-hover:text-primary">layers</span>
+</button>
+<div class="h-4"></div> <!-- Spacer -->
+<div class="flex flex-col rounded-lg bg-surface-dark border border-surface-border shadow-lg overflow-hidden">
+<button class="flex size-10 items-center justify-center border-b border-surface-border bg-surface-dark hover:bg-surface-border transition-colors text-white">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="flex size-10 items-center justify-center bg-surface-dark hover:bg-surface-border transition-colors text-white">
+<span class="material-symbols-outlined">remove</span>
+</button>
+</div>
+</div>
+<!-- Stats Overlay (HUD) -->
+<div class="absolute bottom-8 left-8 z-10 hidden md:block">
+<div class="bg-surface-dark/80 backdrop-blur-md border border-surface-border rounded-xl p-4 shadow-lg min-w-[240px]">
+<h4 class="text-xs font-bold text-white/50 uppercase tracking-widest mb-4">Global Impact</h4>
+<div class="flex flex-col gap-4">
+<div>
+<div class="flex items-end gap-2">
+<span class="text-2xl font-bold text-white">1.2M</span>
+<span class="material-symbols-outlined text-primary mb-1 text-lg">arrow_upward</span>
+</div>
+<p class="text-xs text-white/70">Trees Planted Total</p>
+</div>
+<div>
+<div class="flex items-end gap-2">
+<span class="text-2xl font-bold text-white">42</span>
+</div>
+<p class="text-xs text-white/70">Active Communities</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Fade In Animation Keyframes -->
+<style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</body></html>

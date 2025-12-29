@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Root of Impact | Regenerative Agroforestry</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "primary-hover": "#0fb847",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                        "surface-dark": "#1c3625",
+                        "surface-darker": "#0a160e",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #102216;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1c3625;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2a4f36;
+        }
+        
+        .glass-nav {
+            background: rgba(16, 34, 22, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .ticker-animation {
+            animation: ticker 30s linear infinite;
+        }
+        
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Mock Slider Styles */
+        .slider-handle-line {
+            box-shadow: 0 0 15px 2px rgba(19, 236, 91, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-x-hidden selection:bg-primary selection:text-background-dark">
+<!-- Navigation -->
+<nav class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
+<div class="max-w-[1280px] mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-3 group cursor-pointer">
+<div class="size-8 text-primary transition-transform duration-300 group-hover:scale-110">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">forest</span>
+</div>
+<h1 class="text-white text-xl font-bold tracking-tight">Root of Impact</h1>
+</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-sm font-medium text-gray-300 hover:text-white transition-colors" href="#">Our Mission</a>
+<a class="text-sm font-medium text-gray-300 hover:text-white transition-colors" href="#">Projects</a>
+<a class="text-sm font-medium text-gray-300 hover:text-white transition-colors" href="#">Impact</a>
+<a class="text-sm font-medium text-gray-300 hover:text-white transition-colors" href="#">Blog</a>
+</div>
+<button class="hidden md:flex items-center justify-center h-10 px-6 bg-primary hover:bg-primary-hover text-background-dark text-sm font-bold rounded-full transition-all duration-300 transform hover:scale-105 shadow-[0_0_20px_rgba(19,236,91,0.2)]">
+                Join the Movement
+            </button>
+<button class="md:hidden text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<div class="relative w-full min-h-screen flex flex-col pt-20">
+<!-- Background Image (Simulating Video) -->
+<div class="absolute inset-0 w-full h-full z-0 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-b from-background-dark/80 via-background-dark/40 to-background-dark z-10"></div>
+<img alt="Agroforestry Background" class="w-full h-full object-cover opacity-80" data-alt="Lush green agroforestry canopy sunlight filtering through leaves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSLL2dNNyMqXQ_0TTuyTiqc0XE5C5dhZd-pv0WhfU5Bfc_b2iNoVIr6guGN778f9oiGTdTvK3B2U0ubREB8C09kqRe1ZzsdX1MkyMylvfH2O0SDbjUDGQO5St_BqBpzKF66AEHu9qBvBwQ1Oev5wd2Z5W6H1zDEYEZlWhR04-mYCyYVgR4Lys9WlSuCFYMvLbVHMhpf3xrNBfIRPFY4jizpusMRSOmwKvjKMW7J5swflbRM72Ow2HoMroEV6jBqt9pmFz-Z-Y7k2gb"/>
+</div>
+<div class="relative z-10 flex flex-1 flex-col items-center justify-center px-4 text-center max-w-5xl mx-auto mt-10 md:mt-0">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/10 backdrop-blur-sm mb-6 animate-fade-in-up">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-xs font-medium tracking-wide uppercase text-primary">Live Impact Data</span>
+</div>
+<h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.1] tracking-tight mb-8 drop-shadow-2xl">
+                Regenerating Earth,<br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-primary to-primary/50">One Root at a Time.</span>
+</h1>
+<p class="text-lg md:text-xl text-gray-200 max-w-2xl font-light mb-10 leading-relaxed drop-shadow-lg">
+                We restore degraded ecosystems and empower communities through sustainable, high-yield agroforestry systems that heal the planet.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+<button class="flex items-center justify-center h-14 px-8 bg-primary hover:bg-primary-hover text-background-dark text-base font-bold rounded-lg transition-all duration-300 shadow-[0_0_30px_rgba(19,236,91,0.3)]">
+<span class="material-symbols-outlined mr-2">play_circle</span>
+                    Watch Our Story
+                </button>
+<button class="flex items-center justify-center h-14 px-8 bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md text-white text-base font-bold rounded-lg transition-all duration-300">
+                    View Projects
+                </button>
+</div>
+</div>
+<!-- Global Vitality Ticker Section -->
+<div class="relative z-20 w-full bg-surface-darker/80 border-t border-white/10 backdrop-blur-md mt-auto">
+<div class="flex items-center gap-4 py-6 px-4 overflow-hidden">
+<!-- Ticker Content Wrapper -->
+<div class="flex gap-12 md:justify-center md:w-full min-w-max">
+<div class="flex items-center gap-3">
+<div class="p-2 rounded-full bg-surface-dark border border-white/5">
+<span class="material-symbols-outlined text-primary">forest</span>
+</div>
+<div class="flex flex-col">
+<span class="text-2xl font-bold text-white tracking-tight">1.2M</span>
+<span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Trees Planted</span>
+</div>
+</div>
+<div class="w-px h-10 bg-white/10 hidden md:block"></div>
+<div class="flex items-center gap-3">
+<div class="p-2 rounded-full bg-surface-dark border border-white/5">
+<span class="material-symbols-outlined text-primary">groups</span>
+</div>
+<div class="flex flex-col">
+<span class="text-2xl font-bold text-white tracking-tight">4,102</span>
+<span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Families Empowered</span>
+</div>
+</div>
+<div class="w-px h-10 bg-white/10 hidden md:block"></div>
+<div class="flex items-center gap-3">
+<div class="p-2 rounded-full bg-surface-dark border border-white/5">
+<span class="material-symbols-outlined text-primary">landscape</span>
+</div>
+<div class="flex flex-col">
+<span class="text-2xl font-bold text-white tracking-tight">15,000</span>
+<span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Acres Restored</span>
+</div>
+</div>
+<div class="w-px h-10 bg-white/10 hidden md:block"></div>
+<div class="flex items-center gap-3">
+<div class="p-2 rounded-full bg-surface-dark border border-white/5">
+<span class="material-symbols-outlined text-primary">co2</span>
+</div>
+<div class="flex flex-col">
+<span class="text-2xl font-bold text-white tracking-tight">850 T</span>
+<span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Sequestered</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Intro Text Section -->
+<section class="py-24 px-6 md:px-12 bg-background-dark">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="text-3xl md:text-5xl font-bold text-white mb-8 tracking-tight">Nature's Technology, <span class="text-primary">Rebooted.</span></h2>
+<p class="text-lg md:text-xl text-gray-300 leading-relaxed font-light">
+                Agroforestry isn't just planting trees. It's an intricate design system that mimics natural forests to produce food, restore soil health, and capture carbon simultaneously. We are building the infrastructure for a regenerative future.
+            </p>
+</div>
+</section>
+<!-- Transformation Slider (Static Representation) -->
+<section class="py-12 pb-24 px-4 md:px-12 bg-background-dark relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1/2 bg-surface-darker/50 -skew-y-3 z-0 transform origin-top-left"></div>
+<div class="relative z-10 max-w-6xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-10 gap-6">
+<div>
+<h3 class="text-primary font-bold tracking-widest uppercase text-sm mb-2">Before &amp; After</h3>
+<h2 class="text-3xl md:text-4xl font-bold text-white">See the Transformation</h2>
+</div>
+<div class="flex gap-2">
+<span class="px-4 py-2 rounded-full bg-surface-dark text-white text-sm font-medium border border-white/5">Project: Amazonia</span>
+<span class="px-4 py-2 rounded-full bg-surface-dark text-white text-sm font-medium border border-white/5">Timeframe: 3 Years</span>
+</div>
+</div>
+<!-- The Slider Component -->
+<div class="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl border border-white/10 group cursor-ew-resize">
+<!-- Background Image (Restored - "After") -->
+<img alt="Restored Farm" class="absolute inset-0 w-full h-full object-cover" data-alt="Lush green restored agroforestry farm with diverse crops" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkIevXR8Sr5ioDpyfdV3O3u6RVBy3v2TQ-e037tbS6fDCbQS5UuQ0PdEGLghtsHeqnQH_DbSVwAYL9OvloPFsnnHMpHMiXrVM3IQQLRF50Rcc4-Ce5Y5Qu6PT00bi-BZ_5L2SKWQtX1hdB-JCrKCBHn1M0m7sIVUMhDzD3ZSgVk_NC47IhOP03c3AQw9_pm-rcxZVMPHA_B8eq-28cfOjK5xnMH8Q78Q1Tt3kJAtJIs46pa1m-mx3Tzj_G9jBV1yv8cQXlhiA7YG_3"/>
+<div class="absolute top-6 right-6 bg-black/60 backdrop-blur-sm px-4 py-2 rounded-lg text-primary font-bold text-sm pointer-events-none">
+                    Restored Farm
+                </div>
+<!-- Overlay Image Container (Degraded - "Before") -->
+<!-- Width set to 50% to simulate the slider in the middle -->
+<div class="absolute top-0 left-0 h-full w-1/2 overflow-hidden border-r-4 border-primary slider-handle-line bg-black">
+<img alt="Degraded Land" class="absolute top-0 left-0 min-w-[200%] h-full object-cover object-left" data-alt="Dry cracked earth degraded land barren soil" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXKUgcGaWDuo12cmUI2nwTDctgm2WqWPvyTIeeFbbZpy-KqwloDg4mxsy1bj78uk3NZUd4Bu-QGUcwfMaP6qrWua3oPduDxxFOIWNeWQNUwIlRA6tHvblqobYlbjs4pIYfZEno6W4QFh2Xoh1xDu0gmq_1VEHfhFqInI1bF1FtSym6RSJNxYfai57Sbz_HlqAV26tRN-K2LZ9nJ2sy6-_UYJSVR-QajeRgUl-kC9e426XM0XiMHEVoS32qeZTE-OJ3js5FhqqeDYC-"/>
+<div class="absolute top-6 left-6 bg-black/60 backdrop-blur-sm px-4 py-2 rounded-lg text-white font-bold text-sm">
+                        Degraded Land
+                    </div>
+</div>
+<!-- Slider Handle Button -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(19,236,91,0.5)] z-20">
+<span class="material-symbols-outlined text-background-dark font-bold">code</span>
+</div>
+</div>
+<p class="text-center text-gray-400 text-sm mt-4 italic">
+                Drag the slider to compare the landscape before and after our intervention.
+            </p>
+</div>
+</section>
+<!-- Impact Cards -->
+<section class="py-24 px-6 bg-surface-darker">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="group relative bg-surface-dark rounded-xl p-8 border border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+<div class="w-14 h-14 bg-primary/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
+<span class="material-symbols-outlined text-primary text-3xl group-hover:text-background-dark transition-colors">water_drop</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Water Security</h3>
+<p class="text-gray-400 leading-relaxed mb-6">
+                        Our root systems retain 40% more groundwater, ensuring communities have access to water even during dry seasons.
+                    </p>
+<a class="inline-flex items-center text-primary font-bold text-sm hover:underline" href="#">
+                        Learn more <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+</a>
+</div>
+<!-- Card 2 -->
+<div class="group relative bg-surface-dark rounded-xl p-8 border border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+<div class="w-14 h-14 bg-primary/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
+<span class="material-symbols-outlined text-primary text-3xl group-hover:text-background-dark transition-colors">payments</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Economic Resilience</h3>
+<p class="text-gray-400 leading-relaxed mb-6">
+                        Farmers see a 300% increase in income through diverse crop yields, timber, and carbon credit revenue streams.
+                    </p>
+<a class="inline-flex items-center text-primary font-bold text-sm hover:underline" href="#">
+                        Read case study <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+</a>
+</div>
+<!-- Card 3 -->
+<div class="group relative bg-surface-dark rounded-xl p-8 border border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+<div class="w-14 h-14 bg-primary/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
+<span class="material-symbols-outlined text-primary text-3xl group-hover:text-background-dark transition-colors">pets</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Biodiversity Return</h3>
+<p class="text-gray-400 leading-relaxed mb-6">
+                        We've documented the return of 12 endangered species to our project sites within just 24 months of planting.
+                    </p>
+<a class="inline-flex items-center text-primary font-bold text-sm hover:underline" href="#">
+                        View gallery <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA / Footer Section -->
+<footer class="bg-background-dark relative pt-24 pb-12 overflow-hidden">
+<!-- Decorative Glow -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-primary/10 blur-[100px] rounded-full pointer-events-none"></div>
+<div class="layout-container px-6 md:px-12 max-w-7xl mx-auto relative z-10">
+<div class="bg-surface-dark border border-white/10 rounded-2xl p-8 md:p-16 text-center mb-20">
+<h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Ready to plant the future?</h2>
+<p class="text-gray-300 max-w-2xl mx-auto mb-10 text-lg">
+                    Join over 50,000 subscribers receiving weekly updates on regeneration, soil health, and our global impact.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+<input class="h-12 px-5 bg-background-dark border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-primary w-full" placeholder="Enter your email" type="email"/>
+<button class="h-12 px-8 bg-primary hover:bg-primary-hover text-background-dark font-bold rounded-lg transition-colors whitespace-nowrap">
+                        Sign Up
+                    </button>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10">
+<div class="flex items-center gap-2 mb-4 md:mb-0">
+<span class="material-symbols-outlined text-primary">forest</span>
+<span class="text-white font-bold text-lg">Root of Impact</span>
+</div>
+<div class="flex gap-8 text-gray-400 text-sm">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+<div class="text-gray-500 text-sm mt-4 md:mt-0">
+                    © 2023 Root of Impact. All rights reserved.
+                </div>
+</div>
+</div>
+</footer>
+</body></html>

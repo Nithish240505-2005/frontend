@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Voices from the Field</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13ec5b",
+              "background-light": "#f6f8f6",
+              "background-dark": "#102216",
+              "surface-dark": "#1c3324",
+              "surface-light": "#ffffff",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased overflow-x-hidden selection:bg-primary selection:text-background-dark">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-[#23482f] bg-background-light/95 dark:bg-[#112217]/95 backdrop-blur-sm">
+<div class="flex items-center justify-between px-6 py-4 max-w-[1440px] mx-auto">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<span class="material-symbols-outlined !text-4xl">forest</span>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-tight hidden sm:block">Voices from the Field</h2>
+</div>
+<nav class="hidden lg:flex items-center gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Stories</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Regions</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Crops</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">About Us</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex relative group">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-500 dark:text-[#92c9a4]">
+<span class="material-symbols-outlined !text-[20px]">search</span>
+</div>
+<input class="block w-full rounded-lg border-0 py-2 pl-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-[#23482f] dark:text-white dark:ring-0 dark:placeholder:text-[#92c9a4] sm:text-sm sm:leading-6 min-w-[200px]" placeholder="Search stories..." type="text"/>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-background-dark text-sm font-bold px-5 py-2.5 rounded-lg transition-colors shadow-lg shadow-primary/20">
+                    Subscribe
+                </button>
+</div>
+</div>
+</header>
+<div class="flex max-w-[1440px] mx-auto min-h-[calc(100vh-80px)]">
+<!-- Sidebar Navigation (Sticky) -->
+<aside class="hidden lg:flex w-72 flex-col gap-6 p-6 sticky top-[80px] h-[calc(100vh-80px)] overflow-y-auto border-r border-gray-200 dark:border-[#23482f]">
+<div class="flex flex-col gap-2">
+<h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-[#92c9a4] mb-2">Filters</h3>
+<button class="flex items-center gap-3 px-4 py-3 rounded-lg bg-white dark:bg-[#23482f] shadow-sm ring-1 ring-gray-900/5 dark:ring-0 transition-all hover:scale-[1.02]">
+<span class="material-symbols-outlined text-primary">public</span>
+<span class="font-medium text-sm">All Regions</span>
+</button>
+<button class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-[#1c3324] transition-colors text-gray-600 dark:text-gray-300">
+<span class="material-symbols-outlined">location_on</span>
+<span class="font-medium text-sm">East Africa</span>
+</button>
+<button class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-[#1c3324] transition-colors text-gray-600 dark:text-gray-300">
+<span class="material-symbols-outlined">location_on</span>
+<span class="font-medium text-sm">South America</span>
+</button>
+</div>
+<div class="w-full h-px bg-gray-200 dark:bg-[#23482f]"></div>
+<div class="flex flex-col gap-2">
+<h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-[#92c9a4] mb-2">By Crop</h3>
+<button class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-[#1c3324] transition-colors text-gray-600 dark:text-gray-300">
+<span class="material-symbols-outlined">coffee</span>
+<span class="font-medium text-sm">Coffee</span>
+</button>
+<button class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-[#1c3324] transition-colors text-gray-600 dark:text-gray-300">
+<span class="material-symbols-outlined">eco</span>
+<span class="font-medium text-sm">Cacao</span>
+</button>
+<button class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-[#1c3324] transition-colors text-gray-600 dark:text-gray-300">
+<span class="material-symbols-outlined">forest</span>
+<span class="font-medium text-sm">Timber</span>
+</button>
+</div>
+<div class="mt-auto bg-primary/10 rounded-xl p-4 border border-primary/20">
+<p class="text-sm font-bold text-primary mb-1">Weekly Digest</p>
+<p class="text-xs text-gray-600 dark:text-gray-400 mb-3">Get the best stories delivered to your inbox every Friday.</p>
+<a class="text-xs font-bold text-primary hover:underline" href="#">Sign up now →</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 min-w-0">
+<!-- Hero Section (Parallax Effect via bg-fixed) -->
+<div class="relative w-full h-[85vh] bg-fixed bg-center bg-cover flex items-end pb-20 md:pb-32 px-4 md:px-12" data-alt="Portrait of Maria in her coffee farm looking at the horizon" style="background-image: linear-gradient(to top, rgba(16,34,22,1) 0%, rgba(16,34,22,0.6) 40%, rgba(16,34,22,0.1) 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuA1foLrscED-98J9qKxF5iu9gPkYTJKkE4MKUDpsCiW3W1wsEF2CpYVhxVkEqmVsRbbN79B7uuMsa-j23dbcEqXPyvI_2iDUnCA8zncnSEtdjJqdUBJEfaZI02iZPhjShmqNXENHY1sV9P5zXk-FJOX6REPzueqFQVcxmeOWsw4MNvgZ-GGaeTvkr686ZqwjfBAxUuOUqCC76oF_M_T07Q9uBp66h9uw_79s3FO-yDuyXuZZYp9jSAMPuF_YWgzxFVBauh-EUGCkynv');">
+<div class="max-w-4xl w-full mx-auto animate-fade-in-up">
+<div class="flex items-center gap-2 text-primary mb-4 font-bold tracking-wider text-sm uppercase">
+<span class="material-symbols-outlined !text-lg">location_on</span>
+<span>Cusco, Peru</span>
+<span class="mx-2 text-white/40">•</span>
+<span>8 min read</span>
+</div>
+<h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] mb-6 drop-shadow-lg">
+                        The Guardian of<br/>the Canopy: Maria’s Story
+                    </h1>
+<p class="text-lg md:text-2xl text-gray-200 font-medium max-w-2xl leading-relaxed drop-shadow-md">
+                        In the highlands of Peru, coffee isn't just a crop; it's a legacy of shade-grown resilience.
+                    </p>
+</div>
+</div>
+<!-- Narrative Content -->
+<div class="bg-background-light dark:bg-background-dark relative z-10">
+<div class="max-w-3xl mx-auto px-6 py-16 md:py-24">
+<!-- Chapter 1 -->
+<div class="mb-12">
+<span class="text-primary font-bold text-sm uppercase tracking-widest mb-2 block">Chapter 1</span>
+<h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">The Morning Mist</h2>
+<p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+                            Maria walks through her grove at dawn. The air is thick with mist, a natural blanket that keeps the soil moist. Unlike the monoculture farms down in the valley, her land is a chaotic symphony of biodiversity. 'The trees speak to each other,' she says, resting her hand on an ancient mahogany trunk.
+                        </p>
+<p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            For generations, her family has practiced what scientists now call "agroforestry," but to Maria, it is simply farming with respect. The tall Inga trees fix nitrogen in the soil, feeding the coffee bushes below, while fruit trees attract birds that naturally manage pests.
+                        </p>
+</div>
+<!-- Floating Quote Card -->
+<div class="-mx-6 md:-mx-20 my-16 p-8 md:p-12 rounded-2xl bg-surface-light dark:bg-surface-dark shadow-xl border-l-4 border-primary">
+<span class="material-symbols-outlined text-primary !text-4xl mb-4">format_quote</span>
+<p class="text-2xl md:text-3xl font-bold italic text-gray-900 dark:text-white leading-tight mb-4">
+                            If we cut the trees, we cut our own lungs. The coffee tastes better when it grows in the shade of its ancestors.
+                        </p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-cover bg-center" data-alt="Small avatar of Maria" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBDRXDJdWs34sBmuwS2ziPfFCevauffPNuVWk4gmSiB_bzXo-Qqm8PaevYa0WUqipHwVeTs4HPKkeq99BXCoe6TyTRZeUyILR4l_828l-9dtEhhYVZoy5AwChuLXN056WkXZFFrNsBthH40GbmbQZEXiSVIBJH72LAchnK424YaSDohfsC7CLPkDV-Y1YekOUsLjVNSZcXoLqiMPN9vuRyjb69HiiVEWgeqS3axKzM9nsTeZ09j10J1Xg3QuHm0vKuTg0j3EoLI2yyu');"></div>
+<span class="font-bold text-sm text-gray-500 dark:text-gray-400">Maria, Coffee Farmer</span>
+</div>
+</div>
+<!-- Chapter 2 -->
+<div class="mb-12">
+<h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Resilience in Roots</h2>
+<p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+                            Last year, a drought struck the region. Neighbors who had cleared their land for maximum sun exposure saw their crops wither. Maria's farm, protected by the canopy microclimate, retained moisture. Her yield was lower than average, but the quality was exceptional—dense, complex beans that fetched a premium on the international market.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Parallax Break Image -->
+<div class="w-full h-[60vh] bg-fixed bg-center bg-cover relative" data-alt="Close up of coffee cherries on a branch" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA1lVQVqA-5jeXzaz8TewgW8h5dKeqC-uj6kLu6_W7RplAJ27y645zrxo8gzSB7a2riWhBRImS9VkbHNSJRhFLd2hK18fxu_LPxfIlmLYNENUsCTIKEeJaaQ33DNqtpUF-HV2NKVr44oQZEt21S47b_lO1L-abft6Bd11vw0UXK2aWNpxY9ByjxJFk3xnN7YMxATAkrT7LcId4E6c4gDqLwTZJMNWz-r_rVDkQn6lQ3XZJ5bRPSLKQmReTdU57B3ec7ur_roKJAiunh');">
+<div class="absolute inset-0 bg-black/30"></div>
+<div class="absolute bottom-10 right-10 md:right-20 max-w-sm bg-black/60 backdrop-blur-md p-6 rounded-xl border border-white/10 text-white">
+<div class="flex items-center gap-2 mb-2 text-primary">
+<span class="material-symbols-outlined text-sm">info</span>
+<span class="text-xs font-bold uppercase">Did you know?</span>
+</div>
+<p class="text-sm leading-relaxed">Shade-grown coffee matures slower, allowing natural sugars to enhance the flavor profile significantly.</p>
+</div>
+</div>
+<!-- Conclusion & CTA -->
+<div class="bg-background-light dark:bg-background-dark py-16 md:py-24 px-6">
+<div class="max-w-3xl mx-auto">
+<p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-16">
+                        Maria's success is a beacon for the community. She now leads workshops on weekends, teaching younger farmers how to integrate timber trees with crops for long-term financial stability. But scaling these workshops requires resources.
+                    </p>
+<!-- Meet the Farmer CTA Card -->
+<div class="bg-white dark:bg-surface-dark rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/5 dark:ring-white/10 flex flex-col md:flex-row">
+<div class="md:w-2/5 h-64 md:h-auto bg-cover bg-center relative" data-alt="Maria smiling holding coffee beans" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD2rDx5PL5eCyhYRDEqwofk1kMnqOZdZrr1NpfeBrQI6WZAjYk4hTNtK5jsB1rtpzVaVxtqUxwl92ZTIoP8KNzZj-uj2t1z_SwrinDYn_SC8LPBz5LuY-0F5SaLthvXgVZMeYKj2n-UacTyM8B4jqTW6kFZ15_S9T_f_UJcr30xPw5O31p7skKaQPZK_UOdgEU1PYOBJSeI2nS-5gKTtEQab7upW_lXc582mLcbhKcHgX0SnRyTHnEQG5KHB1JduAiyZSolgX8Y7a8r');">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent md:bg-gradient-to-r"></div>
+<div class="absolute bottom-4 left-4 text-white md:hidden">
+<h3 class="text-xl font-bold">Meet Maria</h3>
+</div>
+</div>
+<div class="p-8 md:w-3/5 flex flex-col justify-center">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-2xl font-bold text-gray-900 dark:text-white hidden md:block">Meet Maria</h3>
+<span class="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary ring-1 ring-inset ring-primary/20">Verified Farmer</span>
+</div>
+<p class="text-gray-600 dark:text-gray-300 mb-6">
+                                Maria is transitioning 2 more acres to agroforestry this season. She needs support to purchase native seedlings and print training materials for her neighbors.
+                            </p>
+<div class="flex flex-col gap-3">
+<button class="w-full bg-primary hover:bg-primary/90 text-background-dark font-bold py-3.5 px-4 rounded-lg transition-all transform active:scale-[0.98] shadow-lg shadow-primary/25 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">volunteer_activism</span>
+                                    Sponsor Training ($25)
+                                </button>
+<button class="w-full bg-transparent border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-white font-medium py-3.5 px-4 rounded-lg hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+                                    View Farm Profile
+                                </button>
+</div>
+<div class="mt-4 flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+                                100% of funds go directly to materials.
+                            </div>
+</div>
+</div>
+</div>
+</div>
+<!-- More Voices Grid -->
+<div class="border-t border-gray-200 dark:border-[#23482f] bg-gray-50 dark:bg-[#0d1a12] py-16 px-6">
+<div class="max-w-[1440px] mx-auto">
+<div class="flex items-center justify-between mb-10">
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white">More Voices</h2>
+<a class="text-primary font-medium hover:underline flex items-center gap-1" href="#">
+                            View all stories <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="group cursor-pointer flex flex-col h-full bg-white dark:bg-surface-dark rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-white/5">
+<div class="h-64 overflow-hidden relative">
+<div class="absolute top-4 left-4 z-10 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">eco</span> Kenya
+                                </div>
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Hands holding rich dark soil" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDtNZPkEte66YaEyYM1y-FvQwxloTZSMx62TUAiwoFg80Kv0AcLRU1fJvDXtvNgwdUxAYK1y5FJoOnAyrB6vx5Kpj3nxhVNkwMOqzixVbOOLXADBpoPZdk3nr8hfNQdKONtQs9hLj285Y_I4jupOa9tFoGgoy5U5VnwV_cMXhoipXl7TEkTYq7bHGX1N0gV90AtpOFjj2yMMY8gmhPKXSjru2k0Uj4UhuyrhR1f12Pry5aM9_lfaPuNfKi87smMF-jqNwxI-Mile2xA');">
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">Regenerating Soil in Kenya</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-3 mb-4 flex-1">
+                                    How a cooperative of women farmers turned a dust bowl into a thriving vegetable garden using permaculture techniques.
+                                </p>
+<div class="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-white/10">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-gray-300 bg-cover" data-alt="Avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD39QyV5FlvnRAUy0LNqSCbM4LATg-jHzkutFI4QXZWorWmhrSUcowz_XBKTD8lJP48zh3-VccSb0RW34Hx0xoY0I9KYFQMg79UQ35ZQtTNZsoGjkYroLZBPecwlr61R-HNesoETnKIlUJGKF1V9SGTyI6UTtcbxkyHz90P6ptgaONFMcSfDAeDxUCXuVPXCSXZ0sNDl260V6SVp5l7zYjSLa_v98npxV9yluXnL7u49c2WejNnBAc7Wa_V4X4EKFlfLnVeTXPL9v1t')"></div>
+<span class="text-xs font-medium text-gray-500 dark:text-gray-400">Sarah O.</span>
+</div>
+<span class="text-primary text-sm font-bold">Read Story</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group cursor-pointer flex flex-col h-full bg-white dark:bg-surface-dark rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-white/5">
+<div class="h-64 overflow-hidden relative">
+<div class="absolute top-4 left-4 z-10 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">forest</span> Brazil
+                                </div>
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Aerial view of rainforest canopy" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB8vluKqEuklOXctCHrDiUnB62mreUvyeiCcQuk0mgr1KDV7CI_PfM0J8igI21tXlZ2fKf6CWTkb1Kua6zsaf_sIAfNM-xZ9oL2lWH-LWr0eejKHIDYhEVcWxFLya8LJSUawhBYOPcz0y-jDQfPTyR1Oxo51whixPz4M-19p6sbFADW14jyD5N0UAKuilZwhN5Z5Q1gdnVExh3PBouZ2hnfS4XlE1g9Yj4nzjOz0KWNrqx1lLGy3_wth5hjdqYSXCpArLv7AjliX_-2');">
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">The Timber Guardians</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-3 mb-4 flex-1">
+                                    Sustainable logging sounds like an oxymoron, until you meet the community protecting the Amazon's edge.
+                                </p>
+<div class="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-white/10">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-gray-300 bg-cover" data-alt="Avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBH3Antqhahik66-cidBXApjnG8B4t8X6QzysMiqfyClrW-CUDQhhLx99h8YrAuQsakB5CreYd6wh5F8qVyeaGzP0OY-rUKtBVwQYeFCZK3uIs6ZCQvbuEYWXHCHQse8xxhrZNtjgdDxpRxUFH-aaJhO13L8lGHS6ESpN1iRV8IJvZvQ71ukIHkPpFYB2X7yWYe46DkSRz_S5lvysytHSy9nwCBr-hfsTGDuPWPnbhF2jxK83225QAHnXD0k3LWaTJWCe2ppAiGpT0R')"></div>
+<span class="text-xs font-medium text-gray-500 dark:text-gray-400">Mateo R.</span>
+</div>
+<span class="text-primary text-sm font-bold">Read Story</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group cursor-pointer flex flex-col h-full bg-white dark:bg-surface-dark rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-white/5">
+<div class="h-64 overflow-hidden relative">
+<div class="absolute top-4 left-4 z-10 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">water_drop</span> Vietnam
+                                </div>
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Rice terraces in Vietnam" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDcOg40l9aGBfKihxt0lWj53EP6YWt6agOX7Eg7Ac4x0j6587I9ZOQ4XzHYEFlFCOxm6VWnIl4FsPx8_bE_Jz4x5ZiY0WrGEQNlTSRosHEXs0PU6tOwVh6PHOUsVXBJOk_sNCwecOisOm0X3i0f-YBayUGpeniNnBestHe3M4NgbFEVNa69LiQzAJzAkwk0a6kbcTNWwGk4mj3-UjjxXJNwd-ng-lVjDcOuWrdlWBRFNvCy0Z38JvGPEfwjHjgMJMz-f5tea8K8RxZx');">
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">Water Wise</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-3 mb-4 flex-1">
+                                    Innovative irrigation systems are saving rice paddies from saltwater intrusion in the Mekong Delta.
+                                </p>
+<div class="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-white/10">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-gray-300 bg-cover" data-alt="Avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCVLCG2R9ZYNszN9B0xuqI_aDEE989mMP6rQSxu-u1cSFwxpJxQVH69-Np2VrCZE-8JkzcyiSkcAxq0NDA-MVO1cToNcroY-BBBhUmBw-7z6pEXqVecFxQEDZV9LDUWYR8klfoc39SL4peZ1pM_wODY9aGVVaUvdVhMZVLgRw3YU2SuLb7KORkk1aCSu4dxaZo3luDTysE5u1ruscXietD-ulC7ta00bSfLFM2091aJAG_wti6X27Bdz79YCGGAYS74jwSk_b1FY0_n')"></div>
+<span class="text-xs font-medium text-gray-500 dark:text-gray-400">Linh T.</span>
+</div>
+<span class="text-primary text-sm font-bold">Read Story</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

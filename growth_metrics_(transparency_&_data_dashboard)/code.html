@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Growth Metrics Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                        "card-dark": "#182e22",
+                        "border-dark": "#2a4f3a",
+                        "text-secondary": "#92c9a4"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #2a4f3a 1px, transparent 1px), linear-gradient(to bottom, #2a4f3a 1px, transparent 1px)",
+                    }
+                },
+            },
+        }
+    </script>
+<style>/* Custom 3D Book Styles */
+.book-container {
+    perspective: 1000px
+    }
+.book {
+    width: 140px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotatey(-25deg) rotatex(10deg);
+    transition: transform 0.5s
+    }
+.book:hover {
+    transform: rotatey(-15deg) rotatex(5deg) scale(1.05)
+    }
+.book-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #182e22 0%, #13ec5b 100%);
+    border-radius: 4px 8px 8px 4px;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1)
+    }
+.book-spine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    background: #112217;
+    transform-origin: left;
+    transform: rotatey(90deg);
+    border-radius: 4px 0 0 4px
+    }
+.book-side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    transform: translatez(-30px);
+    border-radius: 4px
+    }
+.book-pages {
+    position: absolute;
+    right: 0;
+    top: 4px;
+    width: 28px;
+    height: calc(100% - 8px);
+    background: linear-gradient(to right, #ccc, #eee 20%, #ddd 40%, #eee 60%, #ccc);
+    transform: rotatey(90deg) translatez(-138px)
+    }
+/* Subtle topo pattern background */
+.bg-topo {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCTECutrDtBgeIKhv9MbenbVX8iiLk8tZMtripHQuFqvFLf2ShUySoy3Eyh1WE-BgtFSv8xkN7f8P7p09LyLejxeTs3nS5FAmCrR4aX3bRZz17-LokXShZZlIl8WE-kXsqd2YrGkSClJoeiQZlQNPWG4Y7ItYEUzAeMA1I44k5YJYuEbZApLrQCVvWOg_sLPNhcAaNlE3CEiO7MpYFBC6lCxuobNsmUfaAqdgvu1DnSQ61YcD2ucYs_eJ8uU7F4HSqJSYWF9VhBIVrT)
+    }</style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-white overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-border-dark bg-background-dark/95 backdrop-blur-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex h-16 items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center size-8 rounded-lg bg-card-dark border border-border-dark text-primary">
+<span class="material-symbols-outlined text-2xl">forest</span>
+</div>
+<span class="text-white text-lg font-bold tracking-tight">AgroForest Analytics</span>
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-text-secondary hover:text-white text-sm font-medium transition-colors" href="#">Impact</a>
+<a class="text-text-secondary hover:text-white text-sm font-medium transition-colors" href="#">Projects</a>
+<a class="text-text-secondary hover:text-white text-sm font-medium transition-colors" href="#">Account</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden sm:flex items-center justify-center h-9 px-4 rounded-lg bg-card-dark hover:bg-card-dark/80 text-white text-sm font-medium border border-border-dark transition-all">
+                        Log in
+                    </button>
+<button class="flex items-center justify-center h-9 px-5 rounded-lg bg-primary hover:bg-primary/90 text-[#112217] text-sm font-bold shadow-[0_0_15px_rgba(19,236,91,0.3)] transition-all transform active:scale-95">
+                        Donate
+                    </button>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-topo bg-fixed">
+<!-- Header Section -->
+<div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary border border-primary/20">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mr-1.5 animate-pulse"></span>
+                        Live Data
+                    </span>
+<span class="text-text-secondary text-xs font-mono">UPDATED: OCT 24, 2024</span>
+</div>
+<h1 class="text-3xl md:text-4xl font-black tracking-tight text-white mb-2">2024 Impact Transparency Dashboard</h1>
+<p class="text-text-secondary max-w-2xl text-lg">Real-time verification of carbon sequestration, biodiversity indices, and community economic growth.</p>
+</div>
+<div class="flex gap-3">
+<button class="p-2 text-text-secondary hover:text-white hover:bg-card-dark rounded-lg transition-colors border border-transparent hover:border-border-dark">
+<span class="material-symbols-outlined">download</span>
+</button>
+<button class="p-2 text-text-secondary hover:text-white hover:bg-card-dark rounded-lg transition-colors border border-transparent hover:border-border-dark">
+<span class="material-symbols-outlined">share</span>
+</button>
+<div class="h-10 w-px bg-border-dark mx-1"></div>
+<button class="flex items-center gap-2 px-3 py-2 rounded-lg bg-card-dark border border-border-dark text-sm font-medium text-white hover:bg-border-dark/50 transition-colors">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                    Last 30 Days
+                </button>
+</div>
+</div>
+<!-- KPI Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+<!-- Card 1 -->
+<div class="bg-card-dark border border-border-dark rounded-xl p-6 relative overflow-hidden group hover:border-primary/30 transition-all duration-300">
+<div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
+<div class="p-1.5 rounded-md bg-white/5">
+<span class="material-symbols-outlined text-text-secondary text-sm">park</span>
+</div>
+</div>
+<p class="text-text-secondary text-sm font-medium mb-1">Total Trees Planted</p>
+<div class="flex items-baseline gap-2 mb-4">
+<h3 class="text-3xl font-bold text-white tracking-tight">124,500</h3>
+<span class="text-primary text-sm font-semibold bg-primary/10 px-1.5 py-0.5 rounded flex items-center">
+<span class="material-symbols-outlined text-sm mr-0.5">trending_up</span>
+                        12%
+                    </span>
+</div>
+<!-- Sparkline -->
+<div class="h-12 w-full">
+<svg class="w-full h-full stroke-primary fill-primary/10" preserveaspectratio="none" viewbox="0 0 100 30">
+<path d="M0 25 Q 10 20, 20 22 T 40 15 T 60 10 T 80 18 L 100 5 V 30 H 0 Z" stroke="none"></path>
+<path d="M0 25 Q 10 20, 20 22 T 40 15 T 60 10 T 80 18 L 100 5" fill="none" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-card-dark border border-border-dark rounded-xl p-6 relative overflow-hidden group hover:border-primary/30 transition-all duration-300">
+<div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
+<div class="p-1.5 rounded-md bg-white/5">
+<span class="material-symbols-outlined text-text-secondary text-sm">landscape</span>
+</div>
+</div>
+<p class="text-text-secondary text-sm font-medium mb-1">Active Hectares</p>
+<div class="flex items-baseline gap-2 mb-4">
+<h3 class="text-3xl font-bold text-white tracking-tight">850</h3>
+<span class="text-primary text-sm font-semibold bg-primary/10 px-1.5 py-0.5 rounded flex items-center">
+<span class="material-symbols-outlined text-sm mr-0.5">trending_up</span>
+                        5%
+                    </span>
+</div>
+<div class="h-12 w-full">
+<svg class="w-full h-full stroke-white/50 fill-white/5" preserveaspectratio="none" viewbox="0 0 100 30">
+<path d="M0 20 Q 25 25, 50 15 T 100 20 V 30 H 0 Z" stroke="none"></path>
+<path d="M0 20 Q 25 25, 50 15 T 100 20" fill="none" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-card-dark border border-border-dark rounded-xl p-6 relative overflow-hidden group hover:border-primary/30 transition-all duration-300">
+<div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
+<div class="p-1.5 rounded-md bg-white/5">
+<span class="material-symbols-outlined text-text-secondary text-sm">groups</span>
+</div>
+</div>
+<p class="text-text-secondary text-sm font-medium mb-1">Families Supported</p>
+<div class="flex items-baseline gap-2 mb-4">
+<h3 class="text-3xl font-bold text-white tracking-tight">420</h3>
+<span class="text-primary text-sm font-semibold bg-primary/10 px-1.5 py-0.5 rounded flex items-center">
+<span class="material-symbols-outlined text-sm mr-0.5">trending_up</span>
+                        8%
+                    </span>
+</div>
+<div class="h-12 w-full">
+<svg class="w-full h-full stroke-white/50 fill-white/5" preserveaspectratio="none" viewbox="0 0 100 30">
+<path d="M0 28 L 10 24 L 20 26 L 30 20 L 40 22 L 50 15 L 60 18 L 70 12 L 80 14 L 90 8 L 100 10 V 30 H 0 Z" stroke="none"></path>
+<path d="M0 28 L 10 24 L 20 26 L 30 20 L 40 22 L 50 15 L 60 18 L 70 12 L 80 14 L 90 8 L 100 10" fill="none" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Main Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Carbon Chart Area (Wide) -->
+<div class="lg:col-span-8 bg-card-dark border border-border-dark rounded-xl p-6 flex flex-col">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="text-lg font-bold text-white">Carbon Sequestered</h3>
+<p class="text-sm text-text-secondary">Cumulative Tons CO2e removed from atmosphere</p>
+</div>
+<div class="text-right">
+<p class="text-2xl font-bold text-white">12,450t</p>
+<p class="text-xs text-primary">+15% vs 2023</p>
+</div>
+</div>
+<div class="flex-grow min-h-[300px] w-full relative">
+<!-- Background Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between text-xs text-text-secondary/30 pointer-events-none">
+<div class="w-full border-b border-white/5 h-0 relative"><span class="absolute -top-3 left-0">15k</span></div>
+<div class="w-full border-b border-white/5 h-0 relative"><span class="absolute -top-3 left-0">10k</span></div>
+<div class="w-full border-b border-white/5 h-0 relative"><span class="absolute -top-3 left-0">5k</span></div>
+<div class="w-full border-b border-white/5 h-0 relative"><span class="absolute -top-3 left-0">0</span></div>
+</div>
+<!-- Area Chart SVG -->
+<svg class="absolute inset-0 h-full w-full overflow-visible" preserveaspectratio="none" viewbox="0 0 100 100">
+<defs>
+<lineargradient id="carbonGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#13ec5b" stop-opacity="0.4"></stop>
+<stop offset="100%" stop-color="#13ec5b" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- Area path -->
+<path d="M0 90 C 10 88, 15 85, 20 82 C 30 75, 40 78, 50 65 C 60 55, 70 58, 80 40 C 90 25, 95 30, 100 15 V 100 H 0 Z" fill="url(#carbonGradient)"></path>
+<!-- Line path -->
+<path d="M0 90 C 10 88, 15 85, 20 82 C 30 75, 40 78, 50 65 C 60 55, 70 58, 80 40 C 90 25, 95 30, 100 15" fill="none" stroke="#13ec5b" stroke-linecap="round" stroke-width="2"></path>
+<!-- Interactive Dots (Simulated) -->
+<circle cx="20" cy="82" fill="#112217" r="2" stroke="#13ec5b" stroke-width="2"></circle>
+<circle cx="50" cy="65" fill="#112217" r="2" stroke="#13ec5b" stroke-width="2"></circle>
+<circle cx="80" cy="40" fill="#112217" r="2" stroke="#13ec5b" stroke-width="2"></circle>
+<circle cx="100" cy="15" fill="#fff" r="3" stroke="#13ec5b" stroke-width="2"></circle>
+<!-- Tooltip Simulation -->
+<g transform="translate(70, 20)">
+<rect fill="#23482f" height="14" rx="2" width="28" x="0" y="0"></rect>
+<text fill="white" font-size="6" font-weight="bold" text-anchor="middle" x="14" y="9">12.4k</text>
+<path d="M14 14 L 18 18 L 10 18 Z" fill="#23482f" transform="rotate(180 14 16)"></path>
+</g>
+</svg>
+</div>
+<div class="flex justify-between mt-4 text-xs font-mono text-text-secondary">
+<span>2020</span>
+<span>2021</span>
+<span>2022</span>
+<span>2023</span>
+<span>2024</span>
+</div>
+</div>
+<!-- Map Widget -->
+<div class="lg:col-span-4 bg-card-dark border border-border-dark rounded-xl p-0 flex flex-col overflow-hidden relative group">
+<div class="absolute top-4 left-4 z-10 bg-background-dark/80 backdrop-blur px-3 py-1.5 rounded-lg border border-border-dark">
+<p class="text-xs font-bold text-white flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                        Active Planting: Kenya
+                    </p>
+</div>
+<div class="h-full min-h-[300px] w-full bg-[#1b3a2a] relative">
+<!-- Stylized Map Background -->
+<img alt="Map" class="w-full h-full object-cover opacity-40 mix-blend-luminosity grayscale contrast-125" data-alt="Dark stylized satellite map of a region in Kenya with green overlay" data-location="Kenya" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo4IStN92WrAEmjDZSzb2O3TEWx_7ZwbCeHI0VWf7r9ozjcwv6JukR1PRigAwz6TQ9KYiTiVLdDwY2wCw8_bISh1PIH0rWYi9durrjYSWf3Rom9ofnJzPUWgG-Y9IMn5QF6exnCwDnzULIbC-TTIbALdlQA2ZaJWlcPJkrc7OsDB32l4Q_9TFT0cqNLrf_Wqke322ClfXvy_xA1qVdkjIhA0LRTVCv7hlz5pypAqJRd6F5uKIjQylmUjdf00Kq4Hg_0UkV2i6sAnQQ"/>
+<!-- Overlay Grid -->
+<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+CjxwYXRoIGQ9Ik0gMSAwIEwgMCAwIEwgMCAxIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiIHN0cm9rZS13aWR0aD0iMSIvPgo8L3N2Zz4=')] opacity-30"></div>
+<!-- Planting Dots -->
+<div class="absolute top-1/2 left-1/3 transform -translate-x-1/2 -translate-y-1/2">
+<span class="absolute inline-flex h-full w-full rounded-full bg-primary opacity-20 animate-ping"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+</div>
+<div class="absolute top-1/3 right-1/4">
+<span class="absolute inline-flex h-full w-full rounded-full bg-primary opacity-20 animate-ping" style="animation-delay: 0.5s"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</div>
+<div class="absolute bottom-1/3 left-1/4">
+<span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary/70"></span>
+</div>
+</div>
+<div class="p-4 bg-card-dark border-t border-border-dark flex justify-between items-center">
+<div>
+<p class="text-xs text-text-secondary uppercase tracking-widest">Region</p>
+<p class="text-white font-medium">Rift Valley</p>
+</div>
+<div class="text-right">
+<p class="text-xs text-text-secondary uppercase tracking-widest">Status</p>
+<p class="text-primary font-medium">Planting</p>
+</div>
+</div>
+</div>
+<!-- Biodiversity Radar Chart -->
+<div class="lg:col-span-4 bg-card-dark border border-border-dark rounded-xl p-6">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-lg font-bold text-white">Biodiversity Index</h3>
+<span class="px-2 py-1 bg-[#23482f] text-primary text-xs font-bold rounded">88/100</span>
+</div>
+<div class="relative w-full aspect-square max-h-[250px] mx-auto flex items-center justify-center">
+<!-- SVG Radar Chart -->
+<svg class="w-full h-full overflow-visible" viewbox="0 0 100 100">
+<!-- Background Grid Hexagons -->
+<polygon fill="none" points="50,10 90,30 90,70 50,90 10,70 10,30" stroke="#2a4f3a" stroke-width="1"></polygon>
+<polygon fill="none" opacity="0.5" points="50,25 75,37.5 75,62.5 50,75 25,62.5 25,37.5" stroke="#2a4f3a" stroke-width="1"></polygon>
+<polygon fill="none" opacity="0.3" points="50,40 60,45 60,55 50,60 40,55 40,45" stroke="#2a4f3a" stroke-width="1"></polygon>
+<!-- Axis Lines -->
+<line stroke="#2a4f3a" stroke-width="1" x1="50" x2="50" y1="50" y2="10"></line>
+<line stroke="#2a4f3a" stroke-width="1" x1="50" x2="90" y1="50" y2="30"></line>
+<line stroke="#2a4f3a" stroke-width="1" x1="50" x2="90" y1="50" y2="70"></line>
+<line stroke="#2a4f3a" stroke-width="1" x1="50" x2="50" y1="50" y2="90"></line>
+<line stroke="#2a4f3a" stroke-width="1" x1="50" x2="10" y1="50" y2="70"></line>
+<line stroke="#2a4f3a" stroke-width="1" x1="50" x2="10" y1="50" y2="30"></line>
+<!-- Data Polygon -->
+<polygon fill="rgba(19, 236, 91, 0.2)" points="50,15 85,32 80,65 50,85 20,68 35,35" stroke="#13ec5b" stroke-linejoin="round" stroke-width="2"></polygon>
+<!-- Labels -->
+<text fill="#92c9a4" font-size="4" text-anchor="middle" x="50" y="5">Birds</text>
+<text fill="#92c9a4" font-size="4" text-anchor="start" x="95" y="28">Insects</text>
+<text fill="#92c9a4" font-size="4" text-anchor="start" x="95" y="72">Flora</text>
+<text fill="#92c9a4" font-size="4" text-anchor="middle" x="50" y="98">Mammals</text>
+<text fill="#92c9a4" font-size="4" text-anchor="end" x="5" y="72">Soil</text>
+<text fill="#92c9a4" font-size="4" text-anchor="end" x="5" y="28">Water</text>
+</svg>
+</div>
+<div class="mt-4 flex flex-wrap gap-2 justify-center">
+<span class="text-xs text-text-secondary bg-white/5 px-2 py-1 rounded">Current Score: <span class="text-white font-bold">High</span></span>
+<span class="text-xs text-primary bg-primary/10 px-2 py-1 rounded">+5 pts YoY</span>
+</div>
+</div>
+<!-- Income Growth Chart -->
+<div class="lg:col-span-4 bg-card-dark border border-border-dark rounded-xl p-6 flex flex-col">
+<div class="mb-6">
+<h3 class="text-lg font-bold text-white">Income Growth</h3>
+<p class="text-sm text-text-secondary">Per household vs. Traditional</p>
+</div>
+<div class="flex-grow flex items-end justify-around gap-4 min-h-[200px] px-2">
+<!-- Bar Group 1 -->
+<div class="flex flex-col items-center gap-2 w-full group cursor-pointer">
+<div class="relative w-full max-w-[60px] flex items-end h-[180px]">
+<!-- Traditional -->
+<div class="w-1/2 bg-white/20 rounded-t-sm h-[40%] hover:bg-white/30 transition-all"></div>
+<!-- Agroforestry -->
+<div class="w-1/2 bg-primary rounded-t-sm h-[65%] hover:bg-primary/80 transition-all shadow-[0_0_10px_rgba(19,236,91,0.3)]"></div>
+</div>
+<span class="text-xs font-mono text-text-secondary">2022</span>
+</div>
+<!-- Bar Group 2 -->
+<div class="flex flex-col items-center gap-2 w-full group cursor-pointer">
+<div class="relative w-full max-w-[60px] flex items-end h-[180px]">
+<div class="w-1/2 bg-white/20 rounded-t-sm h-[42%] hover:bg-white/30 transition-all"></div>
+<div class="w-1/2 bg-primary rounded-t-sm h-[78%] hover:bg-primary/80 transition-all shadow-[0_0_10px_rgba(19,236,91,0.3)]"></div>
+</div>
+<span class="text-xs font-mono text-text-secondary">2023</span>
+</div>
+<!-- Bar Group 3 -->
+<div class="flex flex-col items-center gap-2 w-full group cursor-pointer">
+<div class="relative w-full max-w-[60px] flex items-end h-[180px]">
+<div class="w-1/2 bg-white/20 rounded-t-sm h-[45%] hover:bg-white/30 transition-all"></div>
+<div class="w-1/2 bg-primary rounded-t-sm h-[95%] hover:bg-primary/80 transition-all shadow-[0_0_10px_rgba(19,236,91,0.3)]"></div>
+</div>
+<span class="text-xs font-mono text-text-secondary font-bold text-primary">2024</span>
+</div>
+</div>
+<div class="mt-6 flex justify-center gap-6">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-sm bg-white/20"></span>
+<span class="text-xs text-text-secondary">Traditional</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-sm bg-primary shadow-[0_0_5px_rgba(19,236,91,0.5)]"></span>
+<span class="text-xs text-text-secondary">Agroforest</span>
+</div>
+</div>
+</div>
+<!-- Transparency Report (3D Book) -->
+<div class="lg:col-span-4 bg-gradient-to-br from-card-dark to-[#0c1610] border border-border-dark rounded-xl p-6 relative overflow-hidden flex flex-col items-center justify-center text-center">
+<!-- Decorative background elements -->
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="z-10 w-full flex flex-col items-center">
+<div class="book-container mb-6 mt-2">
+<div class="book">
+<div class="book-front">
+<div>
+<div class="w-8 h-8 rounded border border-white/30 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-white text-lg">forest</span>
+</div>
+<h4 class="text-white font-bold text-lg leading-tight text-left">Annual<br/>Transparency<br/>Report</h4>
+</div>
+<div>
+<p class="text-white/80 text-xs text-left mb-1">Fiscal Year</p>
+<p class="text-white font-mono text-2xl font-bold text-left">2023</p>
+</div>
+</div>
+<div class="book-spine"></div>
+<div class="book-side"></div>
+<div class="book-pages"></div>
+</div>
+</div>
+<h3 class="text-xl font-bold text-white mb-2">Transparency Report</h3>
+<p class="text-sm text-text-secondary mb-6 max-w-[280px]">Comprehensive audit of our methodology, financials, and impact verification.</p>
+<button class="w-full max-w-[240px] flex items-center justify-center gap-2 h-11 rounded-lg bg-card-dark border border-primary/30 hover:border-primary text-primary hover:bg-primary hover:text-[#112217] text-sm font-bold transition-all group">
+<span class="material-symbols-outlined group-hover:animate-bounce">download</span>
+                        Download PDF (14MB)
+                    </button>
+<div class="mt-4 flex items-center gap-2 text-[10px] text-text-secondary uppercase tracking-wider">
+<span class="material-symbols-outlined text-base text-primary">verified_user</span>
+                         Audited by Deloitte
+                    </div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer simplified -->
+<footer class="border-t border-border-dark bg-background-dark mt-12 py-8">
+<div class="max-w-7xl mx-auto px-6 text-center text-text-secondary text-sm">
+<p>© 2024 AgroForest Analytics. Open Data Standards.</p>
+</div>
+</footer>
+<script>
+        // Simple script to toggle dark mode if needed, though hardcoded to dark for this design
+        document.documentElement.classList.add('dark');
+    </script>
+</body></html>
